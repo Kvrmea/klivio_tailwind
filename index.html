@@ -1,528 +1,581 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="fr" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial_initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Klivio - L'allié de votre progression</title>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;900&display=swap" rel="stylesheet">
+    
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;900&display=swap" rel="stylesheet">
-
     <script src="https://cdn.tailwindcss.com"></script>
-
-      <script>
-  tailwind.config = {
-    theme: {
-      extend: {
-        fontFamily: {
-          montserrat: ['Montserrat', 'sans-serif'],
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            fontFamily: {
+              montserrat: ['Montserrat', 'sans-serif'],
+            },
+            colors: {
+              'klivio-white': '#FFFFFF',
+              'klivio-green': '#44DD8A',
+              'klivio-blue-night': '#152237',
+              'klivio-burger-white': '#FEF7FF',
+              'klivio-text': '#000000',
+              'klivio-light-gray': '#F7F7F7',
+              'klivio-star': '#FFC107',
+            },
+            backgroundImage: {
+              'klivio-gradient': 'linear-gradient(to right, #44DD8A, #15B7E2)',
+              'klivio-gradient-hover': 'linear-gradient(to right, #3BC178, #129BC0)',
+            },
+            boxShadow: {
+                'card': '0 10px 30px -5px rgba(0, 0, 0, 0.05)',
+            }
+          },
         },
-        colors: {
-          'klivio-white': '#FFFFFF',
-          'klivio-green': '#44DD8A',
-          'klivio-blue-night': '#152237',
-          'klivio-burger-white': '#FEF7FF',
-          'klivio-text': '#000000',
-          'klivio-light-gray': '#F7F7F7',
-          'klivio-star': '#FFC107',
-        },
-        backgroundImage: {
-          'klivio-gradient':
-            'linear-gradient(to right, #44DD8A, #15B7E2)',
-          'klivio-gradient-80':
-            'linear-gradient(to right, color-mix(in srgb, #44DD8A 80%, transparent), color-mix(in srgb, #15B7E2 80%, transparent))',
-        },
-      },
-    },
-  }
-</script>
+      }
+    </script>
 
-
-
-
+    <style>
+        .input-field {
+            @apply w-full px-4 py-3 rounded-lg bg-gray-50 border border-gray-200 focus:border-klivio-green focus:ring-2 focus:ring-klivio-green/20 outline-none transition-all duration-300;
+        }
+        .reveal-hidden {
+            opacity: 0;
+            transform: translateY(50px);
+            transition: all 1s ease-out;
+        }
+        .reveal-visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
 </head>
-<body>
+<body class="font-montserrat text-slate-800 antialiased bg-white">
     
-    <header>
-        <nav>
-            <div>
-                <img src="assets/logo.png" alt="Logo Klivio">
+    <header class="fixed w-full top-0 z-50 bg-white/90 backdrop-blur-md border-b border-gray-100 shadow-sm transition-all duration-300">
+        <nav class="container mx-auto px-6 h-20 flex items-center justify-between">
+            <div class="w-32 hover:opacity-80 transition-opacity">
+                <img src="assets/logo.png" alt="Logo Klivio" class="w-full h-auto">
             </div>
 
-            <div>
-                <a href="#">Les formations</a>
+            <div class="hidden lg:flex items-center gap-8">
+                <a href="#" class="font-semibold text-gray-600 hover:text-klivio-green transition-colors">Les formations</a>
                 
-                <form>
-                    <input type="text" placeholder="Rechercher" aria-label="Rechercher une formation">
-                    <button type="submit" aria-label="Lancer la recherche">
-                        <i></i>
+                <form class="relative group">
+                    <input type="text" placeholder="Rechercher" class="pl-4 pr-10 py-2 rounded-full bg-gray-100 border-none focus:ring-2 focus:ring-klivio-green/50 w-64 transition-all duration-300 group-hover:bg-white group-hover:shadow-md" aria-label="Rechercher une formation">
+                    <button type="submit" aria-label="Lancer la recherche" class="absolute right-3 top-1/2 -translate-y-1/2 text-gray-400 hover:text-klivio-green transition-colors">
+                        <i class="fa-solid fa-magnifying-glass"></i>
                     </button>
                 </form>
             </div>          
-            <div>
-                <a href="#">Connexion</a>
-                <a href="#">Inscription</a>
+
+            <div class="hidden lg:flex items-center gap-4">
+                <a href="#" class="font-semibold text-gray-600 hover:text-klivio-blue-night transition-colors">Connexion</a>
+                <a href="#" class="px-6 py-2.5 rounded-full bg-klivio-gradient text-white font-bold shadow-lg shadow-klivio-green/30 hover:shadow-klivio-green/50 hover:scale-105 transition-all duration-300">Inscription</a>
             </div>
             
-            <button><i></i></button>
+            <button class="lg:hidden text-2xl text-klivio-blue-night hover:text-klivio-green transition-colors">
+                <i class="fa-solid fa-bars"></i>
+            </button>
         </nav>
     </header>
 
-    <section>
-        <div>
-            <h1>KLIVIO, L'ALLIÉ DE VOTRE PROGRESSION</h1>
-            <h2>LES MEILLEURES FORMATIONS SUR LE DÉVELOPPEMENT PERSONNEL</h2>
-            <button>En savoir plus</button>
+    <section class="pt-32 pb-20 lg:pt-40 lg:pb-32 bg-klivio-light-gray relative overflow-hidden">
+        <div class="absolute top-0 right-0 w-96 h-96 bg-klivio-green/10 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2"></div>
+        <div class="absolute bottom-0 left-0 w-72 h-72 bg-blue-400/10 rounded-full blur-3xl translate-y-1/2 -translate-x-1/2"></div>
+
+        <div class="container mx-auto px-6 text-center relative z-10">
+            <h1 class="text-4xl lg:text-6xl font-black mb-6 leading-tight">
+                KLIVIO, L'ALLIÉ DE <br>
+                <span class="text-transparent bg-clip-text bg-klivio-gradient">VOTRE PROGRESSION</span>
+            </h1>
+            <h2 class="text-lg lg:text-xl font-medium text-gray-500 mb-10 tracking-wide">LES MEILLEURES FORMATIONS SUR LE DÉVELOPPEMENT PERSONNEL</h2>
+            <button class="px-8 py-4 rounded-full bg-klivio-blue-night text-white font-bold text-lg shadow-xl hover:bg-gray-800 hover:-translate-y-1 transition-all duration-300">
+                En savoir plus
+            </button>
         </div>
     </section>
 
     <main>
-        <section>
-            <h2>Les formations populaires</h2>
-            <div>
+        <section class="py-20 container mx-auto px-6">
+            <div class="flex flex-col md:flex-row justify-between items-end mb-12">
+                <h2 class="text-3xl font-bold text-klivio-blue-night border-l-4 border-klivio-green pl-4">Les formations populaires</h2>
+                <a href="#" class="hidden md:inline-block text-klivio-green font-bold hover:underline">Voir tout <i class="fa-solid fa-arrow-right ml-2"></i></a>
+            </div>
 
-                <article>
-                    <div>
-                        <img src="assets/img-course.png" alt="Image du cours Gérer son temps">
-                        <p>15,99 € <s>60 €</s></p>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <article class="group bg-white rounded-2xl shadow-card hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 overflow-hidden flex flex-col h-full border border-gray-100">
+                    <div class="relative overflow-hidden h-48">
+                        <img src="assets/img-course.png" alt="Image du cours Parler en public" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                        <span class="absolute top-4 right-4 bg-white/90 backdrop-blur px-3 py-1 rounded-full text-sm font-bold text-klivio-blue-night shadow-sm">
+                            15,99 € <s class="text-gray-400 text-xs font-normal">60 €</s>
+                        </span>
                     </div>
 
-                    <div>
-                        <h3>Parler en public</h3>
-                        <p>Sonia Lefèvre | Coach prise de parole</p>
-                        <div>
-                            <i class="fa-solid fa-star"></i>
-                            <i class="fa-solid fa-star"></i>
-                            <i class="fa-solid fa-star"></i>
-                            <i class="fa-solid fa-star"></i>
-                            <i class="fa-solid fa-star"></i>
+                    <div class="p-6 flex flex-col flex-grow">
+                        <div class="flex gap-1 text-klivio-star text-xs mb-2">
+                            <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
                         </div>
-                        <p>Gagnez en aisance et captez votre auditoire</p>
+                        <h3 class="text-xl font-bold text-klivio-blue-night mb-1 group-hover:text-klivio-green transition-colors">Parler en public</h3>
+                        <p class="text-sm text-gray-500 font-medium mb-3">Sonia Lefèvre | Coach</p>
+                        <p class="text-gray-600 text-sm mt-auto leading-relaxed">Gagnez en aisance et captez votre auditoire avec charisme.</p>
                     </div>
                 </article>
 
-                <article>
-                    <div>
-                        <img src="assets/img-course.png" alt="Image du cours Gérer son temps">
-                        <p>15,99 € <s>60 €</s></p>
+                <article class="group bg-white rounded-2xl shadow-card hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 overflow-hidden flex flex-col h-full border border-gray-100">
+                    <div class="relative overflow-hidden h-48">
+                        <img src="assets/img-course.png" alt="Image du cours Gérer le stress" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                        <span class="absolute top-4 right-4 bg-white/90 backdrop-blur px-3 py-1 rounded-full text-sm font-bold text-klivio-blue-night shadow-sm">
+                            15,99 € <s class="text-gray-400 text-xs font-normal">60 €</s>
+                        </span>
                     </div>
 
-                    <div>
-                        <h3>Gérer le stress</h3>
-                        <p>Lucie Garnier | Formatrice</p>
-                        <div>
-                            <i class="fa-solid fa-star"></i>
-                            <i class="fa-solid fa-star"></i>
-                            <i class="fa-solid fa-star"></i>
-                            <i class="fa-solid fa-star"></i>
-                            <i class="fa-solid fa-star"></i> 
+                    <div class="p-6 flex flex-col flex-grow">
+                         <div class="flex gap-1 text-klivio-star text-xs mb-2">
+                            <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
                         </div>
-                        <p>Apprenez à rester serein face aux défis</p>
+                        <h3 class="text-xl font-bold text-klivio-blue-night mb-1 group-hover:text-klivio-green transition-colors">Gérer le stress</h3>
+                        <p class="text-sm text-gray-500 font-medium mb-3">Lucie Garnier | Formatrice</p>
+                        <p class="text-gray-600 text-sm mt-auto leading-relaxed">Apprenez à rester serein face aux défis quotidiens.</p>
                     </div>
                 </article>
 
-                <article>
-                    <div>
-                        <img src="assets/img-course.png" alt="Image du cours Gérer son temps">
-                        <p>15,99 € <s>60 €</s></p>
+                <article class="group bg-white rounded-2xl shadow-card hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 overflow-hidden flex flex-col h-full border border-gray-100">
+                    <div class="relative overflow-hidden h-48">
+                        <img src="assets/img-course.png" alt="Image du cours Travailler en équipe" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                        <span class="absolute top-4 right-4 bg-white/90 backdrop-blur px-3 py-1 rounded-full text-sm font-bold text-klivio-blue-night shadow-sm">
+                            15,99 € <s class="text-gray-400 text-xs font-normal">60 €</s>
+                        </span>
                     </div>
 
-                    <div>
-                        <h3>Travailler en équipe</h3>
-                        <p>David Morsau | Expert</p>
-                        <div>
-                            <i class="fa-solid fa-star"></i>
-                            <i class="fa-solid fa-star"></i>
-                            <i class="fa-solid fa-star"></i>
-                            <i class="fa-solid fa-star"></i>
-                            <i class="fa-solid fa-star"></i>
+                    <div class="p-6 flex flex-col flex-grow">
+                         <div class="flex gap-1 text-klivio-star text-xs mb-2">
+                            <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
                         </div>
-                        <p>Collaborez efficacement, même à distance</p>
+                        <h3 class="text-xl font-bold text-klivio-blue-night mb-1 group-hover:text-klivio-green transition-colors">Travailler en équipe</h3>
+                        <p class="text-sm text-gray-500 font-medium mb-3">David Morsau | Expert</p>
+                        <p class="text-gray-600 text-sm mt-auto leading-relaxed">Collaborez efficacement, même à distance.</p>
                     </div>
                 </article>
 
-                <article>
-                    <div>
-                        <img src="assets/img-course.png" alt="Image du cours Gérer son temps">
-                        <p>15,99 € <s>60 €</s></p>
+                <article class="group bg-white rounded-2xl shadow-card hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 overflow-hidden flex flex-col h-full border border-gray-100">
+                    <div class="relative overflow-hidden h-48">
+                        <img src="assets/img-course.png" alt="Image du cours Gérer son temps" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                        <span class="absolute top-4 right-4 bg-white/90 backdrop-blur px-3 py-1 rounded-full text-sm font-bold text-klivio-blue-night shadow-sm">
+                            15,99 € <s class="text-gray-400 text-xs font-normal">60 €</s>
+                        </span>
                     </div>
 
-                    <div>
-                        <h3>Gérer son temps</h3>
-                        <p>Claire Dumas | Coach organisation</p>
-                        <div>
-                            <i class="fa-solid fa-star"></i>
-                            <i class="fa-solid fa-star"></i>
-                            <i class="fa-solid fa-star"></i>
-                            <i class="fa-solid fa-star"></i>
-                            <i class="fa-solid fa-star"></i> 
+                    <div class="p-6 flex flex-col flex-grow">
+                         <div class="flex gap-1 text-klivio-star text-xs mb-2">
+                            <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
                         </div>
-                        <p>Optimisez vos journées et gagnez en efficacité</p>
+                        <h3 class="text-xl font-bold text-klivio-blue-night mb-1 group-hover:text-klivio-green transition-colors">Gérer son temps</h3>
+                        <p class="text-sm text-gray-500 font-medium mb-3">Claire Dumas | Coach</p>
+                        <p class="text-gray-600 text-sm mt-auto leading-relaxed">Optimisez vos journées et gagnez en efficacité.</p>
                     </div>
                 </article>
             </div>
-             <button>Voir plus de formations</button>
-        </section>
-
-        <section>
-            <h2>Les formations récentes</h2>
-            <div>
-                
-                <article>
-                    <div>
-                        <img src="assets/img-course.png" alt="Image du cours Gérer son temps">
-                        <p>15,99 € <s>60 €</s></p>
-                    </div>
-
-                    <div>
-                        <h3>Mieux communiquer</h3>
-                        <p>Julien Martel| Coach en comm.</p>
-                        <div>
-                            <i class="fa-solid fa-star"></i>
-                            <i class="fa-solid fa-star"></i>
-                            <i class="fa-solid fa-star"></i>
-                            <i class="fa-solid fa-star"></i>
-                            <i class="fa-solid fa-star"></i>
-                        </div>
-                        <p>Améliorez vos échanges et votre impact relationnel</p>
-                    </div>
-                </article>
-
-                <article>
-                    <div>
-                        <img src="assets/img-course.png" alt="Image du cours Gérer son temps">
-                        <p>15,99 € <s>60 €</s></p>
-                    </div>
-
-                    <div>
-                        <h3>Maîtriser ses émotions</h3>
-                        <p>Amel Benali | Psy. du travail</p>
-                        <div>
-                            <i class="fa-solid fa-star"></i>
-                            <i class="fa-solid fa-star"></i>
-                            <i class="fa-solid fa-star"></i>
-                            <i class="fa-solid fa-star"></i>
-                            <i class="fa-solid fa-star"></i>
-                        </div>
-                        <p>Développez votre calme et intelligence émotionnelle</p>
-                    </div>
-                </article>
-                
-                <article>
-                    <div>
-                        <img src="assets/img-course.png" alt="Image du cours Gérer son temps">
-                        <p>15,99 € <s>60 €</s></p>
-                    </div>
-
-                    <div>
-                        <h3>Résoudre les problèmes</h3>
-                        <p>Thomas Rivière | Expert</p>
-                        <div>
-                            <i class="fa-solid fa-star"></i>
-                            <i class="fa-solid fa-star"></i>
-                            <i class="fa-solid fa-star"></i>
-                            <i class="fa-solid fa-star"></i>
-                            <i class="fa-solid fa-star"></i>
-                        </div>
-                        <p>Analysez, décidez et trouvez des solutions durables</p>
-                    </div>
-                </article>
-
-                <article>
-                    <div>
-                        <img src="assets/img-course.png" alt="Image du cours Gérer son temps">
-                        <p>15,99 € <s>60 €</s></p>
-                    </div>
-
-                    <div>
-                        <h3>Leadership positif</h3>
-                        <p>Marc Nguyen | Consultant</p>
-                        <div>
-                            <i class="fa-solid fa-star"></i>
-                            <i class="fa-solid fa-star"></i>
-                            <i class="fa-solid fa-star"></i>
-                            <i class="fa-solid fa-star"></i>
-                            <i class="fa-solid fa-star"></i>
-                        </div>
-                        <p>Inspirez, motivez et fédérez votre équipe</p>
-                    </div>
-                </article>
+            
+            <div class="text-center mt-10 md:hidden">
+                 <button class="px-6 py-3 rounded-lg border-2 border-klivio-green text-klivio-green font-bold hover:bg-klivio-green hover:text-white transition-colors">Voir plus de formations</button>
             </div>
-             <button>Voir plus de formations</button>
         </section>
 
-        <section>
-            <div>
-                <h2>AVIS CLIENTS</h2>
-                <div>
+        <section class="py-20 bg-gray-50">
+            <div class="container mx-auto px-6">
+                 <div class="flex flex-col md:flex-row justify-between items-end mb-12">
+                    <h2 class="text-3xl font-bold text-klivio-blue-night border-l-4 border-klivio-green pl-4">Les formations récentes</h2>
+                    <a href="#" class="hidden md:inline-block text-klivio-green font-bold hover:underline">Voir tout <i class="fa-solid fa-arrow-right ml-2"></i></a>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
                     
-                    <article>
-                        
-                        <div>
-                            
-                            <div>
-                                <img src="assets/juliette.png" alt="Photo de Juliette">
-                                <h4>Juliette</h4>
-                            </div>
-                            
-                            <div>
-                                <i class="fa-solid fa-star"></i>
-                                <i class="fa-solid fa-star"></i>
-                                <i class="fa-solid fa-star"></i>
-                                <i class="fa-solid fa-star"></i>
-                                <i class="fa-solid fa-star"></i>
-                            </div> 
+                    <article class="group bg-white rounded-2xl shadow-card hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 overflow-hidden flex flex-col h-full">
+                        <div class="relative overflow-hidden h-48">
+                            <img src="assets/img-course.png" alt="Mieux communiquer" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                             <span class="absolute top-4 left-4 bg-klivio-green text-white px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wide">Nouveau</span>
                         </div>
-                        
-                        <div>
-                            <p>"J’ai trouvé le parcours très bien structuré : vidéos courtes, quizzes pertinents et projets pratiques qui m’ont permis d’appliquer immédiatement les notions. L’interface est claire et la progression est motivante — parfait pour se former en autonomie."</p>
+                        <div class="p-6 flex flex-col flex-grow">
+                             <h3 class="text-xl font-bold text-klivio-blue-night mb-1 group-hover:text-klivio-green transition-colors">Mieux communiquer</h3>
+                            <p class="text-sm text-gray-500 font-medium mb-3">Julien Martel | Coach</p>
+                            <div class="flex gap-1 text-klivio-star text-xs mb-3">
+                                <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-regular fa-star"></i>
+                            </div>
+                            <p class="text-gray-600 text-sm mt-auto">Améliorez vos échanges et votre impact relationnel.</p>
+                             <div class="mt-4 pt-4 border-t border-gray-100 flex justify-between items-center">
+                                <span class="font-bold text-klivio-blue-night">15,99 €</span>
+                                <i class="fa-solid fa-cart-shopping text-gray-300 hover:text-klivio-green cursor-pointer transition-colors"></i>
+                            </div>
                         </div>
                     </article>
 
-                    <article>
-                        <div>
-                            <div>
-                                <img src="assets/camille.png" alt="Photo de Camille">
-                                <h4>Camille</h4>
+                     <article class="group bg-white rounded-2xl shadow-card hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 overflow-hidden flex flex-col h-full">
+                        <div class="relative overflow-hidden h-48">
+                            <img src="assets/img-course.png" alt="Maîtriser ses émotions" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                             <span class="absolute top-4 left-4 bg-klivio-green text-white px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wide">Nouveau</span>
+                        </div>
+                        <div class="p-6 flex flex-col flex-grow">
+                             <h3 class="text-xl font-bold text-klivio-blue-night mb-1 group-hover:text-klivio-green transition-colors">Maîtriser ses émotions</h3>
+                            <p class="text-sm text-gray-500 font-medium mb-3">Amel Benali | Psy</p>
+                            <div class="flex gap-1 text-klivio-star text-xs mb-3">
+                                <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
                             </div>
-                            <div>
-                                <i class="fa-solid fa-star"></i>
-                                <i class="fa-solid fa-star"></i>
-                                <i class="fa-solid fa-star"></i>
-                                <i class="fa-solid fa-star"></i>
-                                <i class="fa-solid fa-star"></i>
+                            <p class="text-gray-600 text-sm mt-auto">Développez votre calme et intelligence émotionnelle.</p>
+                             <div class="mt-4 pt-4 border-t border-gray-100 flex justify-between items-center">
+                                <span class="font-bold text-klivio-blue-night">15,99 €</span>
+                                <i class="fa-solid fa-cart-shopping text-gray-300 hover:text-klivio-green cursor-pointer transition-colors"></i>
                             </div>
                         </div>
-                        <div>
-                            <p>"Bon équilibre entre théorie et pratique. Les chapitres sont détaillés, et le support et les corrections automatiques ont vraiment aidé. Idéal pour démarrer et progresser rapidement."</p>
+                    </article>
+
+                    <article class="group bg-white rounded-2xl shadow-card hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 overflow-hidden flex flex-col h-full">
+                        <div class="relative overflow-hidden h-48">
+                            <img src="assets/img-course.png" alt="Résoudre les problèmes" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                             <span class="absolute top-4 left-4 bg-klivio-green text-white px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wide">Nouveau</span>
                         </div>
+                        <div class="p-6 flex flex-col flex-grow">
+                             <h3 class="text-xl font-bold text-klivio-blue-night mb-1 group-hover:text-klivio-green transition-colors">Résoudre les problèmes</h3>
+                            <p class="text-sm text-gray-500 font-medium mb-3">Thomas Rivière | Expert</p>
+                            <div class="flex gap-1 text-klivio-star text-xs mb-3">
+                                <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                            </div>
+                            <p class="text-gray-600 text-sm mt-auto">Analysez, décidez et trouvez des solutions.</p>
+                             <div class="mt-4 pt-4 border-t border-gray-100 flex justify-between items-center">
+                                <span class="font-bold text-klivio-blue-night">15,99 €</span>
+                                <i class="fa-solid fa-cart-shopping text-gray-300 hover:text-klivio-green cursor-pointer transition-colors"></i>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="group bg-white rounded-2xl shadow-card hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 overflow-hidden flex flex-col h-full">
+                        <div class="relative overflow-hidden h-48">
+                            <img src="assets/img-course.png" alt="Leadership positif" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                             <span class="absolute top-4 left-4 bg-klivio-green text-white px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wide">Nouveau</span>
+                        </div>
+                        <div class="p-6 flex flex-col flex-grow">
+                             <h3 class="text-xl font-bold text-klivio-blue-night mb-1 group-hover:text-klivio-green transition-colors">Leadership positif</h3>
+                            <p class="text-sm text-gray-500 font-medium mb-3">Marc Nguyen | Consultant</p>
+                            <div class="flex gap-1 text-klivio-star text-xs mb-3">
+                                <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                            </div>
+                            <p class="text-gray-600 text-sm mt-auto">Inspirez, motivez et fédérez votre équipe.</p>
+                             <div class="mt-4 pt-4 border-t border-gray-100 flex justify-between items-center">
+                                <span class="font-bold text-klivio-blue-night">15,99 €</span>
+                                <i class="fa-solid fa-cart-shopping text-gray-300 hover:text-klivio-green cursor-pointer transition-colors"></i>
+                            </div>
+                        </div>
+                    </article>
+
+                </div>
+                 <div class="text-center mt-10 md:hidden">
+                     <button class="px-6 py-3 rounded-lg border-2 border-klivio-green text-klivio-green font-bold hover:bg-klivio-green hover:text-white transition-colors">Voir plus de formations</button>
+                </div>
+            </div>
+        </section>
+
+        <section class="py-24 bg-klivio-blue-night text-white">
+            <div class="container mx-auto px-6">
+                <h2 class="text-3xl font-bold text-center mb-16 relative inline-block left-1/2 -translate-x-1/2">
+                    CE QU'ILS EN PENSENT
+                    <span class="absolute -bottom-4 left-1/2 -translate-x-1/2 w-20 h-1 bg-klivio-green rounded-full"></span>
+                </h2>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-10 max-w-5xl mx-auto">
+                    
+                    <article class="bg-white/5 backdrop-blur-sm p-8 rounded-2xl border border-white/10 hover:bg-white/10 transition-colors">
+                        <div class="flex justify-between items-start mb-6">
+                            <div class="flex items-center gap-4">
+                                <img src="assets/juliette.png" alt="Photo de Juliette" class="w-14 h-14 rounded-full border-2 border-klivio-green object-cover">
+                                <div>
+                                    <h4 class="font-bold text-lg">Juliette</h4>
+                                    <div class="flex text-klivio-star text-xs gap-1">
+                                        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                                    </div>
+                                </div>
+                            </div>
+                            <i class="fa-solid fa-quote-right text-4xl text-klivio-green/20"></i>
+                        </div>
+                        <p class="text-gray-300 leading-relaxed italic">"J’ai trouvé le parcours très bien structuré : vidéos courtes, quizzes pertinents et projets pratiques qui m’ont permis d’appliquer immédiatement les notions."</p>
+                    </article>
+
+                    <article class="bg-white/5 backdrop-blur-sm p-8 rounded-2xl border border-white/10 hover:bg-white/10 transition-colors">
+                        <div class="flex justify-between items-start mb-6">
+                            <div class="flex items-center gap-4">
+                                <img src="assets/camille.png" alt="Photo de Camille" class="w-14 h-14 rounded-full border-2 border-klivio-green object-cover">
+                                <div>
+                                    <h4 class="font-bold text-lg">Camille</h4>
+                                    <div class="flex text-klivio-star text-xs gap-1">
+                                        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                                    </div>
+                                </div>
+                            </div>
+                             <i class="fa-solid fa-quote-right text-4xl text-klivio-green/20"></i>
+                        </div>
+                        <p class="text-gray-300 leading-relaxed italic">"Bon équilibre entre théorie et pratique. Les chapitres sont détaillés, et le support et les corrections automatiques ont vraiment aidé."</p>
                     </article>
 
                 </div>
             </div>
         </section>
         
-        <section>
-            <div>
-                <h3>LES AVANTAGES KLIVIO</h3>
-                <ul>
-                    
-                    <li>
-                        <div>
-                            <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 30 30" fill="none">
-                                <path d="M10.5725 8.85088L21.225 8.85073M21.225 8.85073L21.225 19.3517M21.225 8.85073L8.85065 21.2251" stroke="#44DD8A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                            </svg>
-                        </div>
-                        <span>Suivi de sa progression</span>
-                    </li>
+        <section class="py-24 container mx-auto px-6 overflow-hidden">
+            <div class="flex flex-col-reverse lg:flex-row items-center gap-16">
+                
+                <div class="lg:w-1/2">
+                    <h3 class="text-3xl font-black text-klivio-blue-night mb-10">LES AVANTAGES <span class="text-klivio-green">KLIVIO</span></h3>
+                    <ul class="space-y-8">
+                        
+                        <li class="flex items-start gap-5 p-4 rounded-xl hover:bg-gray-50 transition-colors">
+                            <div class="shrink-0 p-3 bg-klivio-green/10 rounded-lg">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 30 30" fill="none">
+                                    <path d="M10.5725 8.85088L21.225 8.85073M21.225 8.85073L21.225 19.3517M21.225 8.85073L8.85065 21.2251" stroke="#44DD8A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-lg text-klivio-blue-night">Progression Suivie</h4>
+                                <span class="text-gray-500">Tableau de bord détaillé pour suivre chaque étape de votre apprentissage.</span>
+                            </div>
+                        </li>
 
-                    <li>
-                        <div>
-                            <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 30 30" fill="none">
-                                <path d="M15.6706 24.0539L16.5985 23.014C17.7369 21.7381 19.7795 21.9039 20.6972 23.3468C21.5521 24.691 23.4093 24.9458 24.5946 23.8816L26.2764 22.3715M3.7236 24.3377L9.18108 23.2381C9.4708 23.1797 9.73682 23.037 9.94575 22.828L22.1628 10.6042C22.7486 10.0181 22.7482 9.06815 22.162 8.48258L19.5739 5.89748C18.9879 5.31215 18.0384 5.31254 17.4529 5.89837L5.23456 18.1234C5.02604 18.3321 4.88366 18.5975 4.82523 18.8867L3.7236 24.3377Z" stroke="#44DD8A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                            </svg>
-                        </div>
-                        <span>Exercices et QCM pour la mise en pratique</span>
-                    </li>
+                        <li class="flex items-start gap-5 p-4 rounded-xl hover:bg-gray-50 transition-colors">
+                             <div class="shrink-0 p-3 bg-klivio-green/10 rounded-lg">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 30 30" fill="none">
+                                    <path d="M15.6706 24.0539L16.5985 23.014C17.7369 21.7381 19.7795 21.9039 20.6972 23.3468C21.5521 24.691 23.4093 24.9458 24.5946 23.8816L26.2764 22.3715M3.7236 24.3377L9.18108 23.2381C9.4708 23.1797 9.73682 23.037 9.94575 22.828L22.1628 10.6042C22.7486 10.0181 22.7482 9.06815 22.162 8.48258L19.5739 5.89748C18.9879 5.31215 18.0384 5.31254 17.4529 5.89837L5.23456 18.1234C5.02604 18.3321 4.88366 18.5975 4.82523 18.8867L3.7236 24.3377Z" stroke="#44DD8A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>
+                            </div>
+                             <div>
+                                <h4 class="font-bold text-lg text-klivio-blue-night">Pratique Concrète</h4>
+                                <span class="text-gray-500">Exercices interactifs et QCM pour valider vos acquis instantanément.</span>
+                            </div>
+                        </li>
 
-                    <li>
-                        <div>
-                            <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 30 30" fill="none">
-                                <path d="M5 19.0055L5 23.6156C5 24.3143 5.26339 24.9844 5.73223 25.4784C6.20107 25.9725 6.83696 26.25 7.5 26.25H22.5C23.163 26.25 23.7989 25.9725 24.2678 25.4784C24.7366 24.9844 25 24.3143 25 23.6156V19.0055M15.0014 3.75V18.6781M15.0014 18.6781L20.7157 12.9741M15.0014 18.6781L9.28711 12.9741" stroke="#44DD8A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                            </svg>
-                        </div>
-                        <span>Possibilité de télécharger/imprimer les formations</span>
-                    </li>
+                        <li class="flex items-start gap-5 p-4 rounded-xl hover:bg-gray-50 transition-colors">
+                             <div class="shrink-0 p-3 bg-klivio-green/10 rounded-lg">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 30 30" fill="none">
+                                    <path d="M5 19.0055L5 23.6156C5 24.3143 5.26339 24.9844 5.73223 25.4784C6.20107 25.9725 6.83696 26.25 7.5 26.25H22.5C23.163 26.25 23.7989 25.9725 24.2678 25.4784C24.7366 24.9844 25 24.3143 25 23.6156V19.0055M15.0014 3.75V18.6781M15.0014 18.6781L20.7157 12.9741M15.0014 18.6781L9.28711 12.9741" stroke="#44DD8A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>
+                            </div>
+                             <div>
+                                <h4 class="font-bold text-lg text-klivio-blue-night">Ressources Téléchargeables</h4>
+                                <span class="text-gray-500">Accédez aux supports de cours en PDF pour réviser hors ligne.</span>
+                            </div>
+                        </li>
+                        
+                        <li class="flex items-start gap-5 p-4 rounded-xl hover:bg-gray-50 transition-colors">
+                             <div class="shrink-0 p-3 bg-klivio-green/10 rounded-lg">
+                                 <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 30 30" fill="none">
+                                    <path d="M24.3808 15C24.3808 21.2132 19.3427 26.25 13.1279 26.25C6.9131 26.25 1.875 21.2132 1.875 15C1.875 8.7868 6.9131 3.75 13.1279 3.75C17.2931 3.75 20.9297 6.01237 22.8754 9.375M21.2939 16.2346L24.1071 13.4221L26.9203 16.2346M17.3438 18.0677L13.125 16.6614V10.7812" stroke="#44DD8A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>
+                             </div>
+                             <div>
+                                <h4 class="font-bold text-lg text-klivio-blue-night">Liberté Totale</h4>
+                                <span class="text-gray-500">Contenu vérifié, accessible 24h/24 et 7j/7 selon votre propre rythme.</span>
+                            </div>
+                         </li>
 
-                    <li>
-                        <div>
-                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
-                                <path d="M11.495 2.71381C11.7016 2.29527 12.2984 2.29527 12.505 2.71381L15.179 8.13194C15.261 8.29814 15.4196 8.41334 15.603 8.43999L21.5822 9.30883C22.0441 9.37595 22.2286 9.94357 21.8943 10.2694L17.5677 14.4868C17.435 14.6162 17.3744 14.8026 17.4058 14.9852L18.4271 20.9403C18.506 21.4004 18.0232 21.7512 17.6101 21.534L12.262 18.7224C12.098 18.6361 11.902 18.6361 11.7379 18.7224L6.38994 21.534C5.97681 21.7512 5.49396 21.4004 5.57286 20.9403L6.59424 14.9852C6.62557 14.8026 6.56501 14.6162 6.43229 14.4868L2.10566 10.2694C1.77143 9.94357 1.95586 9.37595 2.41775 9.30883L8.39701 8.43999C8.58043 8.41334 8.73898 8.29814 8.82101 8.13194L11.495 2.71381Z" stroke="#44DD8A" stroke-width="2" stroke-linejoin="round"/>
-                            </svg>
-                        </div>
-                        <span>Contenu qualitatif et vérifié</span>
-                    </li>
+                    </ul>
+                </div>
 
-                    <li>
-                        <div>
-                            <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 30 30" fill="none">
-                                <path d="M24.3808 15C24.3808 21.2132 19.3427 26.25 13.1279 26.25C6.9131 26.25 1.875 21.2132 1.875 15C1.875 8.7868 6.9131 3.75 13.1279 3.75C17.2931 3.75 20.9297 6.01237 22.8754 9.375M21.2939 16.2346L24.1071 13.4221L26.9203 16.2346M17.3438 18.0677L13.125 16.6614V10.7812" stroke="#44DD8A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                            </svg>
-                        </div>
-                        <span>Suivi en autonomie, 24h/24, 7/7</span>
-                    </li>
-
-                    <li>
-                        <div>
-                            <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 30 30" fill="none">
-                                <path d="M9.375 12.2932V12.1875M15 12.2932V12.1875M20.625 12.2932V12.1875M18.0571 20.3804L15 26.25L12.1875 20.3804H6.5625C5.0092 20.3804 3.75 19.1212 3.75 17.5679V6.5625C3.75 5.0092 5.0092 3.75 6.5625 3.75H23.4375C24.9908 3.75 26.25 5.0092 26.25 6.5625V17.5679C26.25 19.1212 24.9908 20.3804 23.4375 20.3804H18.0571Z" stroke="#44DD8A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                            </svg>
-                        </div>
-                        <span>Espaces d'échanges dédiés pour poser ses questions sur les formations</span>
-                    </li>
-                </ul>
-            </div>
-
-            <div>
-                <img src="assets/avantages.png" alt="Femme travaillant sur ordinateur">
+                <div class="lg:w-1/2 flex justify-center reveal-hidden">
+                    <img src="assets/avantages.png" alt="Femme travaillant sur ordinateur" class="w-full max-w-md lg:max-w-lg object-contain drop-shadow-2xl hover:scale-105 transition-transform duration-500">
+                </div>
             </div>
         </section>
 
-        <section>
-    
-            <div>
-                <img src="assets/become-author.png" alt="Créer votre formation">
-            </div>
-
-            <div>
-                <h3>CRÉEZ VOS FORMATIONS AVEC KLIVIO</h3>
-                <ul>
+        <section class="py-24 bg-klivio-blue-night text-white overflow-hidden">
+            <div class="container mx-auto px-6">
+                 <div class="flex flex-col lg:flex-row items-center gap-16">
                     
-                    <li>
-                        <div>
-                            <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 30 30" fill="none">
-                            <path d="M9.74016 24.6274C9.21577 24.8007 8.93115 25.3663 9.10445 25.8907C9.27776 26.4151 9.84335 26.6997 10.3677 26.5264L10.0539 25.5769L9.74016 24.6274ZM17.3277 26.0577L17.2378 25.0617L17.3277 26.0577ZM21.692 25.0962L22.1275 25.9963L21.692 25.0962ZM25.8622 21.3351L25.0877 20.7024L25.8622 21.3351ZM23.01 18.9817L23.7141 19.6919L23.01 18.9817ZM21.0894 20.8859L21.7935 21.596L21.0894 20.8859ZM15.873 20.7308C15.3207 20.7308 14.873 21.1785 14.873 21.7308C14.873 22.2831 15.3207 22.7308 15.873 22.7308V21.7308V20.7308ZM25.4187 18.7453L24.8673 19.5795L25.4187 18.7453ZM11.53 18.1144L11.9742 19.0104H11.9742L11.53 18.1144ZM16.7501 17.641L17.0111 16.6757H17.0111L16.7501 17.641ZM18.7886 18.1922L18.5276 19.1575H18.5276L18.7886 18.1922ZM19.4345 20.6036L18.7304 19.8934L18.7304 19.8934L19.4345 20.6036ZM17.5935 21.0206C17.2013 21.4095 17.1986 22.0426 17.5874 22.4348C17.9763 22.827 18.6094 22.8298 19.0016 22.4409L18.2976 21.7308L17.5935 21.0206ZM10.0539 25.5769L10.3677 26.5264C10.538 26.4701 10.8603 26.4399 11.3927 26.4775C11.9048 26.5137 12.5004 26.6024 13.1733 26.7072C14.4608 26.9077 16.0552 27.1767 17.4177 27.0536L17.3277 26.0577L17.2378 25.0617C16.1756 25.1577 14.8606 24.9459 13.481 24.731C12.8204 24.6282 12.143 24.5256 11.5338 24.4825C10.9449 24.4409 10.2972 24.4433 9.74016 24.6274L10.0539 25.5769ZM17.3277 26.0577L17.4177 27.0536C19.304 26.8833 20.1992 26.9293 22.1275 25.9963L21.692 25.0962L21.2565 24.196C19.7136 24.9425 19.198 24.8847 17.2378 25.0617L17.3277 26.0577ZM21.692 25.0962L22.1275 25.9963C23.8595 25.1584 25.5906 23.2481 26.6366 21.9677L25.8622 21.3351L25.0877 20.7024C24.032 21.9947 22.5461 23.572 21.2565 24.196L21.692 25.0962ZM23.01 18.9817L22.3059 18.2716L20.3854 20.1757L21.0894 20.8859L21.7935 21.596L23.7141 19.6919L23.01 18.9817ZM19.0321 21.7308V20.7308H15.873V21.7308V22.7308H19.0321V21.7308ZM21.0894 20.8859L20.3854 20.1757C20.0279 20.5301 19.5413 20.7308 19.0321 20.7308V21.7308V22.7308C20.0662 22.7308 21.0597 22.3236 21.7935 21.596L21.0894 20.8859ZM25.4187 18.7453L25.9701 17.911C24.8189 17.1501 23.2865 17.2994 22.3059 18.2716L23.01 18.9817L23.7141 19.6919C24.0204 19.3882 24.5043 19.3396 24.8673 19.5795L25.4187 18.7453ZM25.8622 21.3351L26.6366 21.9677C27.7115 20.6519 27.3067 18.7944 25.9701 17.911L25.4187 18.7453L24.8673 19.5795C25.3 19.8655 25.3511 20.38 25.0877 20.7024L25.8622 21.3351ZM4.71984 16.9231V17.9231H8.59919V16.9231V15.9231H4.71984V16.9231ZM9.56903 17.8846H8.56903V26.5385H9.56903H10.569V17.8846H9.56903ZM8.59919 27.5V26.5H4.71984V27.5V28.5H8.59919V27.5ZM3.75 26.5385H4.75V17.8846H3.75H2.75V26.5385H3.75ZM4.71984 27.5V26.5C4.72093 26.5 4.72467 26.5004 4.72905 26.5022C4.73279 26.5038 4.73574 26.5059 4.73812 26.5082C4.7405 26.5106 4.74349 26.5144 4.74601 26.5203C4.74883 26.5269 4.75 26.5338 4.75 26.5385H3.75H2.75C2.75 27.6299 3.64005 28.5 4.71984 28.5V27.5ZM9.56903 26.5385H8.56903C8.56903 26.5338 8.5702 26.5269 8.57302 26.5203C8.57554 26.5144 8.57852 26.5106 8.58091 26.5082C8.58329 26.5059 8.58624 26.5038 8.58998 26.5022C8.59436 26.5004 8.5981 26.5 8.59919 26.5V27.5V28.5C9.67898 28.5 10.569 27.6299 10.569 26.5385H9.56903ZM8.59919 16.9231V17.9231C8.5981 17.9231 8.59436 17.9227 8.58998 17.9208C8.58623 17.9193 8.58329 17.9172 8.58091 17.9148C8.57852 17.9125 8.57554 17.9087 8.57302 17.9027C8.5702 17.8961 8.56903 17.8893 8.56903 17.8846H9.56903H10.569C10.569 16.7932 9.67898 15.9231 8.59919 15.9231V16.9231ZM4.71984 16.9231V15.9231C3.64005 15.9231 2.75 16.7932 2.75 17.8846H3.75H4.75C4.75 17.8893 4.74883 17.8961 4.74601 17.9027C4.74349 17.9087 4.74051 17.9125 4.73812 17.9148C4.73574 17.9172 4.73279 17.9193 4.72905 17.9208C4.72467 17.9227 4.72093 17.9231 4.71984 17.9231V16.9231ZM10.0539 18.8462L10.4981 19.7421L11.9742 19.0104L11.53 18.1144L11.0859 17.2185L9.6098 17.9502L10.0539 18.8462ZM14.5661 17.4038V18.4038H14.9638V17.4038V16.4038H14.5661V17.4038ZM16.7501 17.641L16.4891 18.6063L18.5276 19.1575L18.7886 18.1922L19.0496 17.2269L17.0111 16.6757L16.7501 17.641ZM19.4345 20.6036L18.7304 19.8934L17.5935 21.0206L18.2976 21.7308L19.0016 22.4409L20.1386 21.3137L19.4345 20.6036ZM18.7886 18.1922L18.5276 19.1575C18.8695 19.25 18.9669 19.659 18.7304 19.8934L19.4345 20.6036L20.1386 21.3137C21.4818 19.982 20.863 17.7172 19.0496 17.2269L18.7886 18.1922ZM14.9638 17.4038V18.4038C15.4791 18.4038 15.9921 18.472 16.4891 18.6063L16.7501 17.641L17.0111 16.6757C16.3438 16.4952 15.6553 16.4038 14.9638 16.4038V17.4038ZM11.53 18.1144L11.9742 19.0104C12.7785 18.6116 13.666 18.4038 14.5661 18.4038V17.4038V16.4038C13.3583 16.4038 12.1668 16.6826 11.0859 17.2185L11.53 18.1144ZM22.1769 10.1923H21.1769C21.1769 11.7561 19.8959 13.0385 18.2976 13.0385V14.0385V15.0385C20.9842 15.0385 23.1769 12.8769 23.1769 10.1923H22.1769ZM18.2976 14.0385V13.0385C16.6992 13.0385 15.4182 11.7561 15.4182 10.1923H14.4182H13.4182C13.4182 12.8769 15.6109 15.0385 18.2976 15.0385V14.0385ZM14.4182 10.1923H15.4182C15.4182 8.62851 16.6992 7.34615 18.2976 7.34615V6.34615V5.34615C15.6109 5.34615 13.4182 7.50777 13.4182 10.1923H14.4182ZM18.2976 6.34615V7.34615C19.8959 7.34615 21.1769 8.62851 21.1769 10.1923H22.1769H23.1769C23.1769 7.50777 20.9842 5.34615 18.2976 5.34615V6.34615ZM14.4182 10.1923V9.19231C12.8199 9.19231 11.5389 7.90996 11.5389 6.34615H10.5389H9.53887C9.53887 9.0307 11.7315 11.1923 14.4182 11.1923V10.1923ZM10.5389 6.34615H11.5389C11.5389 4.78235 12.8199 3.5 14.4182 3.5V2.5V1.5C11.7315 1.5 9.53887 3.66161 9.53887 6.34615H10.5389ZM14.4182 2.5V3.5C16.0166 3.5 17.2976 4.78235 17.2976 6.34615H18.2976H19.2976C19.2976 3.66161 17.1049 1.5 14.4182 1.5V2.5Z" fill="white"/>
-                            </svg>
-                        </div>
-                        <span>Commision unique, au pourcentage sur les ventes</span>
-                    </li>
+                    <div class="lg:w-1/2 flex justify-center order-2 lg:order-1 reveal-hidden">
+                        <img src="assets/become-author.png" alt="Créer votre formation" class="w-full max-w-md lg:max-w-lg object-contain drop-shadow-2xl hover:rotate-1 transition-transform duration-500">
+                    </div>
 
-                    <li>
-                        <div>
-                            <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 30 30" fill="none">
-                            <path fill-rule="evenodd" clip-rule="evenodd" d="M4.758 7.758C5.88317 6.63317 7.40901 6.00128 9 6.00128C10.591 6.00128 12.1168 6.63317 13.242 7.758L15 9.5145L16.758 7.758C17.3115 7.18494 17.9735 6.72784 18.7056 6.41339C19.4376 6.09894 20.2249 5.93342 21.0216 5.9265C21.8183 5.91957 22.6083 6.07138 23.3457 6.37307C24.0831 6.67475 24.753 7.12027 25.3164 7.68363C25.8797 8.24698 26.3252 8.9169 26.6269 9.65427C26.9286 10.3917 27.0804 11.1817 27.0735 11.9784C27.0666 12.7751 26.9011 13.5624 26.5866 14.2944C26.2721 15.0264 25.8151 15.6885 25.242 16.242L15 26.4855L4.758 16.242C3.63317 15.1168 3.00128 13.591 3.00128 12C3.00128 10.409 3.63317 8.88316 4.758 7.758V7.758Z" stroke="white" stroke-width="2" stroke-linejoin="round"/>
-                            </svg>
-                        </div>
-                        <span>Mise en avant sur la plateforme</span>
-                    </li>
+                    <div class="lg:w-1/2 order-1 lg:order-2">
+                        <h3 class="text-3xl font-black mb-8 leading-tight">CRÉEZ VOS FORMATIONS <br> AVEC <span class="text-klivio-green">KLIVIO</span></h3>
+                        
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                            
+                            <div class="bg-white/10 p-6 rounded-xl hover:bg-white/20 transition-colors">
+                                <div class="mb-4">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 30 30" fill="none"><path d="M9.74016 24.6274C9.21577 24.8007 8.93115 25.3663 9.10445 25.8907C9.27776 26.4151 9.84335 26.6997 10.3677 26.5264L10.0539 25.5769L9.74016 24.6274ZM17.3277 26.0577L17.2378 25.0617L17.3277 26.0577ZM21.692 25.0962L22.1275 25.9963L21.692 25.0962ZM25.8622 21.3351L25.0877 20.7024L25.8622 21.3351ZM23.01 18.9817L23.7141 19.6919L23.01 18.9817ZM21.0894 20.8859L21.7935 21.596L21.0894 20.8859ZM15.873 20.7308C15.3207 20.7308 14.873 21.1785 14.873 21.7308C14.873 22.2831 15.3207 22.7308 15.873 22.7308V21.7308V20.7308ZM25.4187 18.7453L24.8673 19.5795L25.4187 18.7453ZM11.53 18.1144L11.9742 19.0104H11.9742L11.53 18.1144ZM16.7501 17.641L17.0111 16.6757H17.0111L16.7501 17.641ZM18.7886 18.1922L18.5276 19.1575H18.5276L18.7886 18.1922ZM19.4345 20.6036L18.7304 19.8934L18.7304 19.8934L19.4345 20.6036ZM17.5935 21.0206C17.2013 21.4095 17.1986 22.0426 17.5874 22.4348C17.9763 22.827 18.6094 22.8298 19.0016 22.4409L18.2976 21.7308L17.5935 21.0206ZM10.0539 25.5769L10.3677 26.5264C10.538 26.4701 10.8603 26.4399 11.3927 26.4775C11.9048 26.5137 12.5004 26.6024 13.1733 26.7072C14.4608 26.9077 16.0552 27.1767 17.4177 27.0536L17.3277 26.0577L17.2378 25.0617C16.1756 25.1577 14.8606 24.9459 13.481 24.731C12.8204 24.6282 12.143 24.5256 11.5338 24.4825C10.9449 24.4409 10.2972 24.4433 9.74016 24.6274L10.0539 25.5769ZM17.3277 26.0577L17.4177 27.0536C19.304 26.8833 20.1992 26.9293 22.1275 25.9963L21.692 25.0962L21.2565 24.196C19.7136 24.9425 19.198 24.8847 17.2378 25.0617L17.3277 26.0577ZM21.692 25.0962L22.1275 25.9963C23.8595 25.1584 25.5906 23.2481 26.6366 21.9677L25.8622 21.3351L25.0877 20.7024C24.032 21.9947 22.5461 23.572 21.2565 24.196L21.692 25.0962ZM23.01 18.9817L22.3059 18.2716L20.3854 20.1757L21.0894 20.8859L21.7935 21.596L23.7141 19.6919L23.01 18.9817ZM19.0321 21.7308V20.7308H15.873V21.7308V22.7308H19.0321V21.7308ZM21.0894 20.8859L20.3854 20.1757C20.0279 20.5301 19.5413 20.7308 19.0321 20.7308V21.7308V22.7308C20.0662 22.7308 21.0597 22.3236 21.7935 21.596L21.0894 20.8859ZM25.4187 18.7453L25.9701 17.911C24.8189 17.1501 23.2865 17.2994 22.3059 18.2716L23.01 18.9817L23.7141 19.6919C24.0204 19.3882 24.5043 19.3396 24.8673 19.5795L25.4187 18.7453ZM25.8622 21.3351L26.6366 21.9677C27.7115 20.6519 27.3067 18.7944 25.9701 17.911L25.4187 18.7453L24.8673 19.5795C25.3 19.8655 25.3511 20.38 25.0877 20.7024L25.8622 21.3351ZM4.71984 16.9231V17.9231H8.59919V16.9231V15.9231H4.71984V16.9231ZM9.56903 17.8846H8.56903V26.5385H9.56903H10.569V17.8846H9.56903ZM8.59919 27.5V26.5H4.71984V27.5V28.5H8.59919V27.5ZM3.75 26.5385H4.75V17.8846H3.75H2.75V26.5385H3.75ZM4.71984 27.5V26.5C4.72093 26.5 4.72467 26.5004 4.72905 26.5022C4.73279 26.5038 4.73574 26.5059 4.73812 26.5082C4.7405 26.5106 4.74349 26.5144 4.74601 26.5203C4.74883 26.5269 4.75 26.5338 4.75 26.5385H3.75H2.75C2.75 27.6299 3.64005 28.5 4.71984 28.5V27.5ZM9.56903 26.5385H8.56903C8.56903 26.5338 8.5702 26.5269 8.57302 26.5203C8.57554 26.5144 8.57852 26.5106 8.58091 26.5082C8.58329 26.5059 8.58624 26.5038 8.58998 26.5022C8.59436 26.5004 8.5981 26.5 8.59919 26.5V27.5V28.5C9.67898 28.5 10.569 27.6299 10.569 26.5385H9.56903ZM8.59919 16.9231V17.9231C8.5981 17.9231 8.59436 17.9227 8.58998 17.9208C8.58623 17.9193 8.58329 17.9172 8.58091 17.9148C8.57852 17.9125 8.57554 17.9087 8.57302 17.9027C8.5702 17.8961 8.56903 17.8893 8.56903 17.8846H9.56903H10.569C10.569 16.7932 9.67898 15.9231 8.59919 15.9231V16.9231ZM4.71984 16.9231V15.9231C3.64005 15.9231 2.75 16.7932 2.75 17.8846H3.75H4.75C4.75 17.8893 4.74883 17.8961 4.74601 17.9027C4.74349 17.9087 4.74051 17.9125 4.73812 17.9148C4.73574 17.9172 4.73279 17.9193 4.72905 17.9208C4.72467 17.9227 4.72093 17.9231 4.71984 17.9231V16.9231ZM10.0539 18.8462L10.4981 19.7421L11.9742 19.0104L11.53 18.1144L11.0859 17.2185L9.6098 17.9502L10.0539 18.8462ZM14.5661 17.4038V18.4038H14.9638V17.4038V16.4038H14.5661V17.4038ZM16.7501 17.641L16.4891 18.6063L18.5276 19.1575L18.7886 18.1922L19.0496 17.2269L17.0111 16.6757L16.7501 17.641ZM19.4345 20.6036L18.7304 19.8934L17.5935 21.0206L18.2976 21.7308L19.0016 22.4409L20.1386 21.3137L19.4345 20.6036ZM18.7886 18.1922L18.5276 19.1575C18.8695 19.25 18.9669 19.659 18.7304 19.8934L19.4345 20.6036L20.1386 21.3137C21.4818 19.982 20.863 17.7172 19.0496 17.2269L18.7886 18.1922ZM14.9638 17.4038V18.4038C15.4791 18.4038 15.9921 18.472 16.4891 18.6063L16.7501 17.641L17.0111 16.6757C16.3438 16.4952 15.6553 16.4038 14.9638 16.4038V17.4038ZM11.53 18.1144L11.9742 19.0104C12.7785 18.6116 13.666 18.4038 14.5661 18.4038V17.4038V16.4038C13.3583 16.4038 12.1668 16.6826 11.0859 17.2185L11.53 18.1144ZM22.1769 10.1923H21.1769C21.1769 11.7561 19.8959 13.0385 18.2976 13.0385V14.0385V15.0385C20.9842 15.0385 23.1769 12.8769 23.1769 10.1923H22.1769ZM18.2976 14.0385V13.0385C16.6992 13.0385 15.4182 11.7561 15.4182 10.1923H14.4182H13.4182C13.4182 12.8769 15.6109 15.0385 18.2976 15.0385V14.0385ZM14.4182 10.1923H15.4182C15.4182 8.62851 16.6992 7.34615 18.2976 7.34615V6.34615V5.34615C15.6109 5.34615 13.4182 7.50777 13.4182 10.1923H14.4182ZM18.2976 6.34615V7.34615C19.8959 7.34615 21.1769 8.62851 21.1769 10.1923H22.1769H23.1769C23.1769 7.50777 20.9842 5.34615 18.2976 5.34615V6.34615ZM14.4182 10.1923V9.19231C12.8199 9.19231 11.5389 7.90996 11.5389 6.34615H10.5389H9.53887C9.53887 9.0307 11.7315 11.1923 14.4182 11.1923V10.1923ZM10.5389 6.34615H11.5389C11.5389 4.78235 12.8199 3.5 14.4182 3.5V2.5V1.5C11.7315 1.5 9.53887 3.66161 9.53887 6.34615H10.5389ZM14.4182 2.5V3.5C16.0166 3.5 17.2976 4.78235 17.2976 6.34615H18.2976H19.2976C19.2976 3.66161 17.1049 1.5 14.4182 1.5V2.5Z" fill="white"/></svg>
+                                </div>
+                                <h4 class="font-bold text-lg mb-2">Commission Unique</h4>
+                                <p class="text-sm text-gray-400">Pourcentage fixe et clair sur chaque vente, sans frais cachés.</p>
+                            </div>
+                            
+                            <div class="bg-white/10 p-6 rounded-xl hover:bg-white/20 transition-colors">
+                                <div class="mb-4">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 30 30" fill="none"><path fill-rule="evenodd" clip-rule="evenodd" d="M4.758 7.758C5.88317 6.63317 7.40901 6.00128 9 6.00128C10.591 6.00128 12.1168 6.63317 13.242 7.758L15 9.5145L16.758 7.758C17.3115 7.18494 17.9735 6.72784 18.7056 6.41339C19.4376 6.09894 20.2249 5.93342 21.0216 5.9265C21.8183 5.91957 22.6083 6.07138 23.3457 6.37307C24.0831 6.67475 24.753 7.12027 25.3164 7.68363C25.8797 8.24698 26.3252 8.9169 26.6269 9.65427C26.9286 10.3917 27.0804 11.1817 27.0735 11.9784C27.0666 12.7751 26.9011 13.5624 26.5866 14.2944C26.2721 15.0264 25.8151 15.6885 25.242 16.242L15 26.4855L4.758 16.242C3.63317 15.1168 3.00128 13.591 3.00128 12C3.00128 10.409 3.63317 8.88316 4.758 7.758V7.758Z" stroke="white" stroke-width="2" stroke-linejoin="round"/></svg>
+                                </div>
+                                <h4 class="font-bold text-lg mb-2">Visibilité Maximale</h4>
+                                <p class="text-sm text-gray-400">Nous mettons vos cours en avant auprès de milliers d'étudiants.</p>
+                            </div>
+                            
+                             <div class="bg-white/10 p-6 rounded-xl hover:bg-white/20 transition-colors">
+                                <div class="mb-4">
+                                     <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" viewBox="0 0 26 26" fill="none"><path d="M4 17.5L9.25 22M3.25 17.5L18.0392 2.19428C19.6316 0.601908 22.2133 0.601905 23.8057 2.19428C25.3981 3.78665 25.3981 6.36841 23.8057 7.96078L8.5 22.75L1 25L3.25 17.5Z" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                                </div>
+                                <h4 class="font-bold text-lg mb-2">Contrôle Total</h4>
+                                <p class="text-sm text-gray-400">Vous restez maître de votre contenu et de votre tarification.</p>
+                            </div>
 
-                    <li>
-                        <div>
-                            <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" viewBox="0 0 26 26" fill="none">
-                            <path d="M4 17.5L9.25 22M3.25 17.5L18.0392 2.19428C19.6316 0.601908 22.2133 0.601905 23.8057 2.19428C25.3981 3.78665 25.3981 6.36841 23.8057 7.96078L8.5 22.75L1 25L3.25 17.5Z" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                            </svg>
-                        </div>
-                        <span>Contrôle total sur le cours : contenu, prix</span>
-                    </li>
+                             <div class="bg-white/10 p-6 rounded-xl hover:bg-white/20 transition-colors">
+                                <div class="mb-4">
+                                     <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" viewBox="0 0 25 25" fill="none"><path fill-rule="evenodd" clip-rule="evenodd" d="M14.3454 2.64534C13.811 0.451554 10.689 0.451554 10.1546 2.64534C10.0748 2.97499 9.91835 3.28115 9.69789 3.5389C9.47743 3.79665 9.19923 3.99871 8.88593 4.12863C8.57262 4.25856 8.23307 4.31267 7.8949 4.28658C7.55673 4.26049 7.2295 4.15493 6.93983 3.97848C5.0104 2.80284 2.80252 5.01069 3.97818 6.94009C4.73758 8.18605 4.06396 9.8117 2.64642 10.1562C0.451194 10.6892 0.451194 13.8125 2.64642 14.3441C2.97616 14.424 3.28238 14.5806 3.54013 14.8013C3.79789 15.0219 3.99989 15.3003 4.12969 15.6137C4.25949 15.9272 4.31343 16.2669 4.2871 16.6051C4.26077 16.9434 4.15492 17.2707 3.97818 17.5603C2.80252 19.4897 5.0104 21.6975 6.93983 20.5219C7.22945 20.3451 7.55671 20.2393 7.89497 20.213C8.23323 20.1866 8.57293 20.2406 8.8864 20.3704C9.19987 20.5002 9.47825 20.7022 9.69888 20.9599C9.91951 21.2177 10.0761 21.5239 10.156 21.8536C10.689 24.0488 13.8124 24.0488 14.344 21.8536C14.4241 21.524 14.5809 21.218 14.8016 20.9605C15.0223 20.7029 15.3006 20.501 15.614 20.3713C15.9274 20.2415 16.2669 20.1875 16.6051 20.2137C16.9433 20.2398 17.2705 20.3454 17.5602 20.5219C19.4896 21.6975 21.6975 19.4897 20.5218 17.5603C20.3454 17.2706 20.2398 16.9434 20.2136 16.6052C20.1875 16.267 20.2414 15.9275 20.3712 15.6141C20.501 15.3007 20.7028 15.0224 20.9604 14.8017C21.218 14.5811 21.524 14.4243 21.8536 14.3441C24.0488 13.8111 24.0488 10.6878 21.8536 10.1562C21.5238 10.0764 21.2176 9.91972 20.9599 9.6991C20.7021 9.47847 20.5001 9.20009 20.3703 8.88663C20.2405 8.57316 20.1866 8.23347 20.2129 7.89521C20.2392 7.55696 20.3451 7.2297 20.5218 6.94009C21.6975 5.01069 19.4896 2.80284 17.5602 3.97848C17.2706 4.15523 16.9433 4.26107 16.605 4.2874C16.2668 4.31373 15.9271 4.2598 15.6136 4.12999C15.3001 4.00019 15.0217 3.7982 14.8011 3.54045C14.5805 3.2827 14.4239 2.97648 14.344 2.64674L14.3454 2.64534Z" stroke="white" stroke-width="2"/><path d="M14.75 12.25C14.75 13.6307 13.6307 14.75 12.25 14.75C10.8693 14.75 9.75 13.6307 9.75 12.25C9.75 10.8693 10.8693 9.75 12.25 9.75C13.6307 9.75 14.75 10.8693 14.75 12.25Z" stroke="white" stroke-width="2"/></svg>
+                                </div>
+                                <h4 class="font-bold text-lg mb-2">Outils Avancés</h4>
+                                <p class="text-sm text-gray-400">Statistiques, codes promos, gestion de la facturation intégrée.</p>
+                            </div>
 
-                    <li>
-                        <div>
-                            <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" viewBox="0 0 25 25" fill="none">
-                            <path fill-rule="evenodd" clip-rule="evenodd" d="M14.3454 2.64534C13.811 0.451554 10.689 0.451554 10.1546 2.64534C10.0748 2.97499 9.91835 3.28115 9.69789 3.5389C9.47743 3.79665 9.19923 3.99871 8.88593 4.12863C8.57262 4.25856 8.23307 4.31267 7.8949 4.28658C7.55673 4.26049 7.2295 4.15493 6.93983 3.97848C5.0104 2.80284 2.80252 5.01069 3.97818 6.94009C4.73758 8.18605 4.06396 9.8117 2.64642 10.1562C0.451194 10.6892 0.451194 13.8125 2.64642 14.3441C2.97616 14.424 3.28238 14.5806 3.54013 14.8013C3.79789 15.0219 3.99989 15.3003 4.12969 15.6137C4.25949 15.9272 4.31343 16.2669 4.2871 16.6051C4.26077 16.9434 4.15492 17.2707 3.97818 17.5603C2.80252 19.4897 5.0104 21.6975 6.93983 20.5219C7.22945 20.3451 7.55671 20.2393 7.89497 20.213C8.23323 20.1866 8.57293 20.2406 8.8864 20.3704C9.19987 20.5002 9.47825 20.7022 9.69888 20.9599C9.91951 21.2177 10.0761 21.5239 10.156 21.8536C10.689 24.0488 13.8124 24.0488 14.344 21.8536C14.4241 21.524 14.5809 21.218 14.8016 20.9605C15.0223 20.7029 15.3006 20.501 15.614 20.3713C15.9274 20.2415 16.2669 20.1875 16.6051 20.2137C16.9433 20.2398 17.2705 20.3454 17.5602 20.5219C19.4896 21.6975 21.6975 19.4897 20.5218 17.5603C20.3454 17.2706 20.2398 16.9434 20.2136 16.6052C20.1875 16.267 20.2414 15.9275 20.3712 15.6141C20.501 15.3007 20.7028 15.0224 20.9604 14.8017C21.218 14.5811 21.524 14.4243 21.8536 14.3441C24.0488 13.8111 24.0488 10.6878 21.8536 10.1562C21.5238 10.0764 21.2176 9.91972 20.9599 9.6991C20.7021 9.47847 20.5001 9.20009 20.3703 8.88663C20.2405 8.57316 20.1866 8.23347 20.2129 7.89521C20.2392 7.55696 20.3451 7.2297 20.5218 6.94009C21.6975 5.01069 19.4896 2.80284 17.5602 3.97848C17.2706 4.15523 16.9433 4.26107 16.605 4.2874C16.2668 4.31373 15.9271 4.2598 15.6136 4.12999C15.3001 4.00019 15.0217 3.7982 14.8011 3.54045C14.5805 3.2827 14.4239 2.97648 14.344 2.64674L14.3454 2.64534Z" stroke="white" stroke-width="2"/>
-                            <path d="M14.75 12.25C14.75 13.6307 13.6307 14.75 12.25 14.75C10.8693 14.75 9.75 13.6307 9.75 12.25C9.75 10.8693 10.8693 9.75 12.25 9.75C13.6307 9.75 14.75 10.8693 14.75 12.25Z" stroke="white" stroke-width="2"/>
-                            </svg>
                         </div>
-                        <span>Fonctionnalités avancées : espace commentaires, possibilité de créer des QCM, exercices, vidéos, téléchargement en PDF, suivi des statistiques des ventes, gestion de codes promos, gestion de la facturation, etc</span>
-                    </li>
-
-                    <li>
-                        <div>
-                            <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" viewBox="0 0 26 26" fill="none">
-                            <path d="M3.25 22.7503C3.68045 22.2682 6.57231 19.997 8.00969 18.8774C8.5332 18.4696 9.17534 18.2503 9.83892 18.2503C11.4435 18.2503 14.5355 18.2503 16.1478 18.2503C16.8192 18.2503 17.4677 18.479 18.0082 18.8771C19.8642 20.2444 21.6041 21.2632 23.5 22.7503M5.5 25H20.5C22.9853 25 25 22.9853 25 20.5V5.5C25 3.01472 22.9853 1 20.5 1H5.5C3.01472 1 1 3.01472 1 1 5.5V20.5C1 22.9853 3.01472 25 5.5 25ZM17.2982 9.59005C17.2982 7.30066 15.3655 5.4301 13 5.4301C10.6345 5.4301 8.70181 7.30066 8.70181 9.59005C8.70181 11.8794 10.6345 13.75 13 13.75C15.3655 13.75 17.2982 11.8794 17.2982 9.59005Z" stroke="white" stroke-width="2"/>
-                            </svg>
-                        </div>
-                        <span>Le professeur reste 100% propriétaire de sa formation et conserve tous ses droits d’auteur</span>
-                    </li>
-                </ul>
+                    </div>
+                </div>
             </div>
         </section>
         
-        <section>
-            <div>
-                <h3>À PROPOS DE KLIVIO</h3>
-                <div>
-                    <p>
-                    Chez Klivio, nous défendons des valeurs fondamentales qui définissent notre approche éducative. 
-                    Nous nous engageons à assurer une rémunération équitable pour les créateurs de contenu, reconnaissant la qualité de leur travail. <br><br>
-                    Favorisant l'autonomie d'apprentissage, notre plateforme offre la flexibilité nécessaire pour explorer divers sujets. 
-                    La transparence est au cœur de notre démarche, garantissant une clarté totale sur les formations que les instructeurs proposent. 
-                    Ensemble, ces valeurs forment le socle d'une éducation enrichissante et équitable, guidant notre mission d'offrir des opportunités d'apprentissage de qualité.
-                    </p>
+        <section class="py-24 bg-white container mx-auto px-6">
+            <div class="flex flex-col md:flex-row items-center gap-12">
+                <div class="md:w-2/3">
+                    <h3 class="text-3xl font-black text-klivio-blue-night mb-6">À PROPOS DE <span class="text-klivio-green">KLIVIO</span></h3>
+                    <div class="prose lg:prose-lg text-gray-600 leading-relaxed text-justify">
+                        <p class="mb-4">
+                        Chez Klivio, nous défendons des valeurs fondamentales qui définissent notre approche éducative. 
+                        Nous nous engageons à assurer une rémunération équitable pour les créateurs de contenu, reconnaissant la qualité de leur travail.
+                        </p>
+                        <p class="mb-4">
+                        Favorisant l'autonomie d'apprentissage, notre plateforme offre la flexibilité nécessaire pour explorer divers sujets. 
+                        La transparence est au cœur de notre démarche, garantissant une clarté totale sur les formations que les instructeurs proposent. 
+                        </p>
+                        <p class="font-bold text-klivio-blue-night">
+                        Ensemble, ces valeurs forment le socle d'une éducation enrichissante et équitable, guidant notre mission d'offrir des opportunités d'apprentissage de qualité.
+                        </p>
+                    </div>
                 </div>
-            </div>
 
-            <div>
-                <img src="assets/logo.png" alt="Logo Klivio">
+                <div class="md:w-1/3 flex justify-center">
+                    <img src="assets/logo.png" alt="Logo Klivio" class="w-2/3 opacity-80 grayscale hover:grayscale-0 transition-all duration-500">
+                </div>
             </div>
         </section>
 
-        <section>
-            <div>
-                <h3>NOUS CONTACTER</h3>
-                <hr>
+        <section class="py-24 bg-klivio-light-gray relative">
+            <div class="container mx-auto px-6 max-w-2xl text-center">
+                <h3 class="text-3xl font-black text-klivio-blue-night mb-2">NOUS CONTACTER</h3>
+                <div class="w-16 h-1 bg-klivio-green mx-auto rounded-full mb-10"></div>
                 
-                <form>
-                    <div>
-                        <input type="text" name="nom" placeholder="Nom" required>
-                        <input type="email" name="email" placeholder="Email" required>
+                <form class="space-y-6 text-left bg-white p-8 rounded-2xl shadow-xl">
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <input type="text" name="nom" placeholder="Nom" required class="input-field">
+                        <input type="email" name="email" placeholder="Email" required class="input-field">
                     </div>
                     
-                    <textarea name="message" placeholder="Votre message" required></textarea>
+                    <textarea name="message" placeholder="Votre message" required rows="5" class="input-field resize-none"></textarea>
                     
-                    <button type="submit">Envoyer</button>
+                    <button type="submit" class="w-full py-4 rounded-lg bg-klivio-gradient text-white font-bold text-lg shadow-lg hover:shadow-klivio-green/50 hover:-translate-y-1 transition-all duration-300">Envoyer le message</button>
                 </form>
             </div>
         </section>
     </main>
     
             
-    <footer>
-    <div>
-    
-        <div>
-            <img src="assets/logo.png" alt="Logo Klivio">
-        </div>
+    <footer class="bg-gray-900 text-gray-300 pt-20 pb-10">
+        <div class="container mx-auto px-6">
+        
+            <div class="flex flex-col lg:flex-row justify-between gap-12 mb-16">
+                <div class="lg:w-1/4">
+                    <img src="assets/logo.png" alt="Logo Klivio" class="w-32 brightness-0 invert mb-6">
+                    <p class="text-sm text-gray-500">La plateforme de référence pour apprendre, progresser et enseigner. Rejoignez la communauté Klivio.</p>
+                </div>
 
-        <div>
-            <div>
-                <h4>Mentions légales</h4>
-                <ul>
-                    <li><a href="#">CGU</a></li>
-                    <li><a href="#">CGV</a></li>
-                    <li><a href="#">FAQ</a></li>
-                    <li><a href="#">Contact</a></li>
-                </ul>
+                <div class="flex flex-col md:flex-row gap-12 lg:gap-24">
+                    <div>
+                        <h4 class="text-white font-bold text-lg mb-6 border-b-2 border-klivio-green inline-block pb-1">Mentions légales</h4>
+                        <ul class="space-y-3">
+                            <li><a href="#" class="hover:text-klivio-green transition-colors">CGU</a></li>
+                            <li><a href="#" class="hover:text-klivio-green transition-colors">CGV</a></li>
+                            <li><a href="#" class="hover:text-klivio-green transition-colors">FAQ</a></li>
+                            <li><a href="#" class="hover:text-klivio-green transition-colors">Contact</a></li>
+                        </ul>
+                    </div>
+
+                    <div>
+                        <h4 class="text-white font-bold text-lg mb-6 border-b-2 border-klivio-green inline-block pb-1">Coordonnées</h4>
+                        <ul class="space-y-4">
+                            <li class="flex items-start gap-3">
+                                <i class="fa-solid fa-location-dot mt-1 text-klivio-green"></i>
+                                <span>1 place république,<br>75003 Paris</span>
+                            </li>
+                            <li class="flex items-center gap-3">
+                                <i class="fa-solid fa-phone text-klivio-green"></i>
+                                <span>01.02.03.04.05</span>
+                            </li>
+                            <li class="flex items-center gap-3">
+                                <i class="fa-solid fa-envelope text-klivio-green"></i>
+                                <span>contact@klivio.fr</span>
+                            </li>
+                        </ul>
+                         <div class="mt-8 flex gap-4">
+                            <a href="#" class="text-sm font-bold text-white hover:text-klivio-green transition-colors">Connexion</a>
+                            <span class="text-gray-600">|</span>
+                            <a href="#" class="text-sm font-bold text-white hover:text-klivio-green transition-colors">Inscription</a>
+                        </div>
+                    </div>
+                </div>
             </div>
 
-            <div>
-                <h4>Coordonnées</h4>
-                <ul>
-                    <li>
-                        <i></i>
-                        <span>1 place république,<br>75003 Paris</span>
-                    </li>
-                    <li>
-                        <i></i>
-                        <span>01.02.03.04.05</span>
-                    </li>
-                    <li>
-                        <i></i>
-                        <span>contact@klivio.fr</span>
-                    </li>
-                </ul>
-                <div>
-                    <a href="#">Connexion</a>
-                    <a href="#">Inscription</a>
+            <hr class="border-gray-800 mb-8">
+
+            <div class="flex flex-col md:flex-row justify-between items-center gap-6">
+                <p class="text-sm text-gray-500">© Klivio - 2025</p>
+                
+                <div class="flex items-center gap-6">
+                    <span class="text-sm font-medium">Suivez-nous</span>
+                    <div class="flex gap-4">
+                        <a href="#" aria-label="Facebook" class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center hover:bg-klivio-green hover:text-white transition-all duration-300"><i class="fa-brands fa-facebook-f"></i></a>
+                        <a href="#" aria-label="Twitter/X" class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center hover:bg-klivio-green hover:text-white transition-all duration-300"><i class="fa-brands fa-x-twitter"></i></a>
+                        <a href="#" aria-label="Instagram" class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center hover:bg-klivio-green hover:text-white transition-all duration-300"><i class="fa-brands fa-instagram"></i></a>
+                        <a href="#" aria-label="LinkedIn" class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center hover:bg-klivio-green hover:text-white transition-all duration-300"><i class="fa-brands fa-linkedin-in"></i></a>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
+    </footer>
 
-    <hr>
+    <script>
+        // On attend que le DOM soit chargé
+        document.addEventListener('DOMContentLoaded', () => {
+            // Options de l'observateur
+            const observerOptions = {
+                root: null, // viewport
+                threshold: 0.2 // déclenche quand 20% de l'élément est visible
+            };
 
-    <div>
-        <p>© Klivio - 2025</p>
-        
-        <div>
-            <span>Suivez-nous</span>
-            <a href="#" aria-label="Facebook"><i></i></a>
-            <a href="#" aria-label="Twitter/X"><i></i></a>
-            <a href="#" aria-label="Instagram"><i></i></a>
-            <a href="#" aria-label="LinkedIn"><i></i></a>
-        </div>
-    </div>
-</footer>
+            // Fonction callback quand l'élément est visible
+            const observerCallback = (entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        // On ajoute la classe visible et on retire la classe hidden
+                        entry.target.classList.remove('reveal-hidden');
+                        entry.target.classList.add('reveal-visible');
+                        // On arrête d'observer cet élément une fois animé
+                        observer.unobserve(entry.target);
+                    }
+                });
+            };
 
+            // Création de l'observateur
+            const observer = new IntersectionObserver(observerCallback, observerOptions);
+
+            // On cible tous les éléments avec la classe 'reveal-hidden'
+            const hiddenElements = document.querySelectorAll('.reveal-hidden');
+            hiddenElements.forEach(el => observer.observe(el));
+        });
+    </script>
 </body>
 </html>
