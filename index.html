@@ -11,34 +11,7 @@
     
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script>
-      tailwind.config = {
-        theme: {
-          extend: {
-            fontFamily: {
-              montserrat: ['Montserrat', 'sans-serif'],
-            },
-            colors: {
-              'klivio-white': '#FFFFFF',
-              'klivio-green': '#44DD8A',
-              'klivio-blue-night': '#152237',
-              'klivio-burger-white': '#FEF7FF',
-              'klivio-text': '#000000',
-              'klivio-light-gray': '#F7F7F7',
-              'klivio-star': '#FFC107',
-            },
-            backgroundImage: {
-              'klivio-gradient': 'linear-gradient(to right, #44DD8A, #15B7E2)',
-              'klivio-gradient-hover': 'linear-gradient(to right, #3BC178, #129BC0)',
-            },
-            boxShadow: {
-                'card': '0 10px 30px -5px rgba(0, 0, 0, 0.05)',
-            }
-          },
-        },
-      }
-    </script>
+    <link rel="stylesheet" href="./src/output.css">
 
     <style>
         /* .input-field {
@@ -85,17 +58,28 @@
         </nav>
     </header>
 
-    <section class="pt-32 pb-20 lg:pt-40 lg:pb-32 bg-klivio-light-gray relative overflow-hidden">
-        <div class="absolute top-0 right-0 w-96 h-96 bg-klivio-green/10 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2"></div>
-        <div class="absolute bottom-0 left-0 w-72 h-72 bg-blue-400/10 rounded-full blur-3xl translate-y-1/2 -translate-x-1/2"></div>
+    <section class="relative pt-32 pb-20 lg:pt-40 lg:pb-32 overflow-hidden bg-klivio-blue-night">
+    
+        <div class="absolute inset-0 z-0">
+            <img src="assets/bg-header.png" alt="Fond" class="w-full h-full object-cover brightness-40">
+            <div class="absolute inset-0 bg-hero-overlay"></div>
+        </div>
+
+        <div class="absolute top-0 right-0 w-96 h-96 bg-klivio-green/10 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2 z-1"></div>
 
         <div class="container mx-auto px-6 text-center relative z-10">
-            <h1 class="text-4xl lg:text-6xl font-black mb-6 leading-tight">
+            <h1 class="text-4xl lg:text-6xl font-black mb-6 leading-tight text-white">
                 KLIVIO, L'ALLIÉ DE <br>
-                <span class="text-transparent bg-clip-text bg-klivio-gradient">VOTRE PROGRESSION</span>
+                <span class="bg-klivio-gradient bg-clip-text text-transparent animate-pulse drop-shadow-sm">
+                    VOTRE PROGRESSION
+                </span>
             </h1>
-            <h2 class="text-lg lg:text-xl font-medium text-gray-500 mb-10 tracking-wide">LES MEILLEURES FORMATIONS SUR LE DÉVELOPPEMENT PERSONNEL</h2>
-            <button class="px-8 py-4 rounded-full bg-klivio-blue-night text-white font-bold text-lg shadow-xl hover:bg-gray-800 hover:-translate-y-1 transition-all duration-300">
+            
+            <h2 class="text-lg lg:text-xl font-medium text-gray-200 mb-10 tracking-wide drop-shadow-md">
+                LES MEILLEURES FORMATIONS SUR LE DÉVELOPPEMENT PERSONNEL
+            </h2>
+
+            <button class="px-8 py-4 rounded-full bg-klivio-gradient text-klivio-blue-night font-bold text-lg shadow-xl hover:scale-105 transition-all duration-300">
                 En savoir plus
             </button>
         </div>
@@ -117,7 +101,7 @@
                         </span>
                     </div>
 
-                    <div class="p-6 flex flex-col flex-grow">
+                    <div class="p-6 flex flex-col grow">
                         <div class="flex gap-1 text-klivio-star text-xs mb-2">
                             <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
                         </div>
@@ -135,9 +119,9 @@
                         </span>
                     </div>
 
-                    <div class="p-6 flex flex-col flex-grow">
+                    <div class="p-6 flex flex-col grow">
                          <div class="flex gap-1 text-klivio-star text-xs mb-2">
-                            <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-regular fa-star opacity-40"></i>
                         </div>
                         <h3 class="text-xl font-bold text-klivio-blue-night mb-1 group-hover:text-klivio-green transition-colors">Gérer le stress</h3>
                         <p class="text-sm text-gray-500 font-medium mb-3">Lucie Garnier | Formatrice</p>
@@ -153,7 +137,7 @@
                         </span>
                     </div>
 
-                    <div class="p-6 flex flex-col flex-grow">
+                    <div class="p-6 flex flex-col grow">
                          <div class="flex gap-1 text-klivio-star text-xs mb-2">
                             <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
                         </div>
@@ -171,9 +155,9 @@
                         </span>
                     </div>
 
-                    <div class="p-6 flex flex-col flex-grow">
+                    <div class="p-6 flex flex-col grow">
                          <div class="flex gap-1 text-klivio-star text-xs mb-2">
-                            <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-regular fa-star opacity-40"></i>
                         </div>
                         <h3 class="text-xl font-bold text-klivio-blue-night mb-1 group-hover:text-klivio-green transition-colors">Gérer son temps</h3>
                         <p class="text-sm text-gray-500 font-medium mb-3">Claire Dumas | Coach</p>
@@ -201,7 +185,7 @@
                             <img src="assets/img-course.png" alt="Mieux communiquer" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
                              <span class="absolute top-4 left-4 bg-klivio-green text-white px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wide">Nouveau</span>
                         </div>
-                        <div class="p-6 flex flex-col flex-grow">
+                        <div class="p-6 flex flex-col grow">
                              <h3 class="text-xl font-bold text-klivio-blue-night mb-1 group-hover:text-klivio-green transition-colors">Mieux communiquer</h3>
                             <p class="text-sm text-gray-500 font-medium mb-3">Julien Martel | Coach</p>
                             <div class="flex gap-1 text-klivio-star text-xs mb-3">
@@ -209,7 +193,9 @@
                             </div>
                             <p class="text-gray-600 text-sm mt-auto">Améliorez vos échanges et votre impact relationnel.</p>
                              <div class="mt-4 pt-4 border-t border-gray-100 flex justify-between items-center">
-                                <span class="font-bold text-klivio-blue-night">15,99 €</span>
+                                <span class="font-bold text-klivio-blue-night">15,99 €
+                                    <s class="text-gray-400 text-xs font-normal">60 €</s>
+                                </span>
                                 <i class="fa-solid fa-cart-shopping text-gray-300 hover:text-klivio-green cursor-pointer transition-colors"></i>
                             </div>
                         </div>
@@ -220,7 +206,7 @@
                             <img src="assets/img-course.png" alt="Maîtriser ses émotions" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
                              <span class="absolute top-4 left-4 bg-klivio-green text-white px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wide">Nouveau</span>
                         </div>
-                        <div class="p-6 flex flex-col flex-grow">
+                        <div class="p-6 flex flex-col grow">
                              <h3 class="text-xl font-bold text-klivio-blue-night mb-1 group-hover:text-klivio-green transition-colors">Maîtriser ses émotions</h3>
                             <p class="text-sm text-gray-500 font-medium mb-3">Amel Benali | Psy</p>
                             <div class="flex gap-1 text-klivio-star text-xs mb-3">
@@ -228,7 +214,9 @@
                             </div>
                             <p class="text-gray-600 text-sm mt-auto">Développez votre calme et intelligence émotionnelle.</p>
                              <div class="mt-4 pt-4 border-t border-gray-100 flex justify-between items-center">
-                                <span class="font-bold text-klivio-blue-night">15,99 €</span>
+                                <span class="font-bold text-klivio-blue-night">15,99 €
+                                    <s class="text-gray-400 text-xs font-normal">60 €</s>
+                                </span>
                                 <i class="fa-solid fa-cart-shopping text-gray-300 hover:text-klivio-green cursor-pointer transition-colors"></i>
                             </div>
                         </div>
@@ -239,15 +227,17 @@
                             <img src="assets/img-course.png" alt="Résoudre les problèmes" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
                              <span class="absolute top-4 left-4 bg-klivio-green text-white px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wide">Nouveau</span>
                         </div>
-                        <div class="p-6 flex flex-col flex-grow">
+                        <div class="p-6 flex flex-col grow">
                              <h3 class="text-xl font-bold text-klivio-blue-night mb-1 group-hover:text-klivio-green transition-colors">Résoudre les problèmes</h3>
                             <p class="text-sm text-gray-500 font-medium mb-3">Thomas Rivière | Expert</p>
                             <div class="flex gap-1 text-klivio-star text-xs mb-3">
-                                <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-regular fa-star opacity-40"></i>
                             </div>
                             <p class="text-gray-600 text-sm mt-auto">Analysez, décidez et trouvez des solutions.</p>
                              <div class="mt-4 pt-4 border-t border-gray-100 flex justify-between items-center">
-                                <span class="font-bold text-klivio-blue-night">15,99 €</span>
+                                <span class="font-bold text-klivio-blue-night">15,99 €
+                                    <s class="text-gray-400 text-xs font-normal">60 €</s>
+                                </span>
                                 <i class="fa-solid fa-cart-shopping text-gray-300 hover:text-klivio-green cursor-pointer transition-colors"></i>
                             </div>
                         </div>
@@ -258,15 +248,17 @@
                             <img src="assets/img-course.png" alt="Leadership positif" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
                              <span class="absolute top-4 left-4 bg-klivio-green text-white px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wide">Nouveau</span>
                         </div>
-                        <div class="p-6 flex flex-col flex-grow">
+                        <div class="p-6 flex flex-col grow">
                              <h3 class="text-xl font-bold text-klivio-blue-night mb-1 group-hover:text-klivio-green transition-colors">Leadership positif</h3>
                             <p class="text-sm text-gray-500 font-medium mb-3">Marc Nguyen | Consultant</p>
                             <div class="flex gap-1 text-klivio-star text-xs mb-3">
-                                <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-regular fa-star opacity-40"></i>
                             </div>
                             <p class="text-gray-600 text-sm mt-auto">Inspirez, motivez et fédérez votre équipe.</p>
                              <div class="mt-4 pt-4 border-t border-gray-100 flex justify-between items-center">
-                                <span class="font-bold text-klivio-blue-night">15,99 €</span>
+                                <span class="font-bold text-klivio-blue-night">15,99 €
+                                    <s class="text-gray-400 text-xs font-normal">60 €</s>
+                                </span>
                                 <i class="fa-solid fa-cart-shopping text-gray-300 hover:text-klivio-green cursor-pointer transition-colors"></i>
                             </div>
                         </div>
@@ -282,7 +274,7 @@
         <section class="py-24 bg-klivio-blue-night text-white">
             <div class="container mx-auto px-6">
                 <h2 class="text-3xl font-bold text-center mb-16 relative inline-block left-1/2 -translate-x-1/2">
-                    CE QU'ILS EN PENSENT
+                    AVIS CLIENTS
                     <span class="absolute -bottom-4 left-1/2 -translate-x-1/2 w-20 h-1 bg-klivio-green rounded-full"></span>
                 </h2>
                 
@@ -393,7 +385,7 @@
                  <div class="flex flex-col lg:flex-row items-center gap-16">
                     
                     <div class="lg:w-1/2 flex justify-center order-2 lg:order-1 reveal-hidden">
-                        <img src="assets/become-author.png" alt="Créer votre formation" class="w-full max-w-md lg:max-w-lg object-contain drop-shadow-2xl hover:rotate-1 transition-transform duration-500">
+                        <img src="assets/become-author.png" alt="Créer votre formation" class="w-full max-w-md lg:max-w-lg object-contain drop-shadow-2xl hover:rotate-1 transition-transform duration-500 animate-wiggle">
                     </div>
 
                     <div class="lg:w-1/2 order-1 lg:order-2">
@@ -403,10 +395,10 @@
                             
                             <div class="bg-white/10 p-6 rounded-xl hover:bg-white/20 transition-colors">
                                 <div class="mb-4">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 30 30" fill="none"><path d="M9.74016 24.6274C9.21577 24.8007 8.93115 25.3663 9.10445 25.8907C9.27776 26.4151 9.84335 26.6997 10.3677 26.5264L10.0539 25.5769L9.74016 24.6274ZM17.3277 26.0577L17.2378 25.0617L17.3277 26.0577ZM21.692 25.0962L22.1275 25.9963L21.692 25.0962ZM25.8622 21.3351L25.0877 20.7024L25.8622 21.3351ZM23.01 18.9817L23.7141 19.6919L23.01 18.9817ZM21.0894 20.8859L21.7935 21.596L21.0894 20.8859ZM15.873 20.7308C15.3207 20.7308 14.873 21.1785 14.873 21.7308C14.873 22.2831 15.3207 22.7308 15.873 22.7308V21.7308V20.7308ZM25.4187 18.7453L24.8673 19.5795L25.4187 18.7453ZM11.53 18.1144L11.9742 19.0104H11.9742L11.53 18.1144ZM16.7501 17.641L17.0111 16.6757H17.0111L16.7501 17.641ZM18.7886 18.1922L18.5276 19.1575H18.5276L18.7886 18.1922ZM19.4345 20.6036L18.7304 19.8934L18.7304 19.8934L19.4345 20.6036ZM17.5935 21.0206C17.2013 21.4095 17.1986 22.0426 17.5874 22.4348C17.9763 22.827 18.6094 22.8298 19.0016 22.4409L18.2976 21.7308L17.5935 21.0206ZM10.0539 25.5769L10.3677 26.5264C10.538 26.4701 10.8603 26.4399 11.3927 26.4775C11.9048 26.5137 12.5004 26.6024 13.1733 26.7072C14.4608 26.9077 16.0552 27.1767 17.4177 27.0536L17.3277 26.0577L17.2378 25.0617C16.1756 25.1577 14.8606 24.9459 13.481 24.731C12.8204 24.6282 12.143 24.5256 11.5338 24.4825C10.9449 24.4409 10.2972 24.4433 9.74016 24.6274L10.0539 25.5769ZM17.3277 26.0577L17.4177 27.0536C19.304 26.8833 20.1992 26.9293 22.1275 25.9963L21.692 25.0962L21.2565 24.196C19.7136 24.9425 19.198 24.8847 17.2378 25.0617L17.3277 26.0577ZM21.692 25.0962L22.1275 25.9963C23.8595 25.1584 25.5906 23.2481 26.6366 21.9677L25.8622 21.3351L25.0877 20.7024C24.032 21.9947 22.5461 23.572 21.2565 24.196L21.692 25.0962ZM23.01 18.9817L22.3059 18.2716L20.3854 20.1757L21.0894 20.8859L21.7935 21.596L23.7141 19.6919L23.01 18.9817ZM19.0321 21.7308V20.7308H15.873V21.7308V22.7308H19.0321V21.7308ZM21.0894 20.8859L20.3854 20.1757C20.0279 20.5301 19.5413 20.7308 19.0321 20.7308V21.7308V22.7308C20.0662 22.7308 21.0597 22.3236 21.7935 21.596L21.0894 20.8859ZM25.4187 18.7453L25.9701 17.911C24.8189 17.1501 23.2865 17.2994 22.3059 18.2716L23.01 18.9817L23.7141 19.6919C24.0204 19.3882 24.5043 19.3396 24.8673 19.5795L25.4187 18.7453ZM25.8622 21.3351L26.6366 21.9677C27.7115 20.6519 27.3067 18.7944 25.9701 17.911L25.4187 18.7453L24.8673 19.5795C25.3 19.8655 25.3511 20.38 25.0877 20.7024L25.8622 21.3351ZM4.71984 16.9231V17.9231H8.59919V16.9231V15.9231H4.71984V16.9231ZM9.56903 17.8846H8.56903V26.5385H9.56903H10.569V17.8846H9.56903ZM8.59919 27.5V26.5H4.71984V27.5V28.5H8.59919V27.5ZM3.75 26.5385H4.75V17.8846H3.75H2.75V26.5385H3.75ZM4.71984 27.5V26.5C4.72093 26.5 4.72467 26.5004 4.72905 26.5022C4.73279 26.5038 4.73574 26.5059 4.73812 26.5082C4.7405 26.5106 4.74349 26.5144 4.74601 26.5203C4.74883 26.5269 4.75 26.5338 4.75 26.5385H3.75H2.75C2.75 27.6299 3.64005 28.5 4.71984 28.5V27.5ZM9.56903 26.5385H8.56903C8.56903 26.5338 8.5702 26.5269 8.57302 26.5203C8.57554 26.5144 8.57852 26.5106 8.58091 26.5082C8.58329 26.5059 8.58624 26.5038 8.58998 26.5022C8.59436 26.5004 8.5981 26.5 8.59919 26.5V27.5V28.5C9.67898 28.5 10.569 27.6299 10.569 26.5385H9.56903ZM8.59919 16.9231V17.9231C8.5981 17.9231 8.59436 17.9227 8.58998 17.9208C8.58623 17.9193 8.58329 17.9172 8.58091 17.9148C8.57852 17.9125 8.57554 17.9087 8.57302 17.9027C8.5702 17.8961 8.56903 17.8893 8.56903 17.8846H9.56903H10.569C10.569 16.7932 9.67898 15.9231 8.59919 15.9231V16.9231ZM4.71984 16.9231V15.9231C3.64005 15.9231 2.75 16.7932 2.75 17.8846H3.75H4.75C4.75 17.8893 4.74883 17.8961 4.74601 17.9027C4.74349 17.9087 4.74051 17.9125 4.73812 17.9148C4.73574 17.9172 4.73279 17.9193 4.72905 17.9208C4.72467 17.9227 4.72093 17.9231 4.71984 17.9231V16.9231ZM10.0539 18.8462L10.4981 19.7421L11.9742 19.0104L11.53 18.1144L11.0859 17.2185L9.6098 17.9502L10.0539 18.8462ZM14.5661 17.4038V18.4038H14.9638V17.4038V16.4038H14.5661V17.4038ZM16.7501 17.641L16.4891 18.6063L18.5276 19.1575L18.7886 18.1922L19.0496 17.2269L17.0111 16.6757L16.7501 17.641ZM19.4345 20.6036L18.7304 19.8934L17.5935 21.0206L18.2976 21.7308L19.0016 22.4409L20.1386 21.3137L19.4345 20.6036ZM18.7886 18.1922L18.5276 19.1575C18.8695 19.25 18.9669 19.659 18.7304 19.8934L19.4345 20.6036L20.1386 21.3137C21.4818 19.982 20.863 17.7172 19.0496 17.2269L18.7886 18.1922ZM14.9638 17.4038V18.4038C15.4791 18.4038 15.9921 18.472 16.4891 18.6063L16.7501 17.641L17.0111 16.6757C16.3438 16.4952 15.6553 16.4038 14.9638 16.4038V17.4038ZM11.53 18.1144L11.9742 19.0104C12.7785 18.6116 13.666 18.4038 14.5661 18.4038V17.4038V16.4038C13.3583 16.4038 12.1668 16.6826 11.0859 17.2185L11.53 18.1144ZM22.1769 10.1923H21.1769C21.1769 11.7561 19.8959 13.0385 18.2976 13.0385V14.0385V15.0385C20.9842 15.0385 23.1769 12.8769 23.1769 10.1923H22.1769ZM18.2976 14.0385V13.0385C16.6992 13.0385 15.4182 11.7561 15.4182 10.1923H14.4182H13.4182C13.4182 12.8769 15.6109 15.0385 18.2976 15.0385V14.0385ZM14.4182 10.1923H15.4182C15.4182 8.62851 16.6992 7.34615 18.2976 7.34615V6.34615V5.34615C15.6109 5.34615 13.4182 7.50777 13.4182 10.1923H14.4182ZM18.2976 6.34615V7.34615C19.8959 7.34615 21.1769 8.62851 21.1769 10.1923H22.1769H23.1769C23.1769 7.50777 20.9842 5.34615 18.2976 5.34615V6.34615ZM14.4182 10.1923V9.19231C12.8199 9.19231 11.5389 7.90996 11.5389 6.34615H10.5389H9.53887C9.53887 9.0307 11.7315 11.1923 14.4182 11.1923V10.1923ZM10.5389 6.34615H11.5389C11.5389 4.78235 12.8199 3.5 14.4182 3.5V2.5V1.5C11.7315 1.5 9.53887 3.66161 9.53887 6.34615H10.5389ZM14.4182 2.5V3.5C16.0166 3.5 17.2976 4.78235 17.2976 6.34615H18.2976H19.2976C19.2976 3.66161 17.1049 1.5 14.4182 1.5V2.5Z" fill="white"/></svg>
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 30 30" fill="none"><path d="M9.74016 24.6274C9.21577 24.8007 8.93115 25.3663 9.10445 25.8907C9.27776 26.4151 9.84335 26.6997 10.3677 26.5264L10.0539 25.5769L9.74016 24.6274ZM17.3277 26.0577L17.2378 25.0617L17.3277 26.0577ZM21.692 25.0962L22.1275 25.9963L21.692 25.0962ZM25.8622 21.3351L25.0877 20.7024L25.8622 21.3351ZM23.01 18.9817L23.7141 19.6919L23.01 18.9817ZM21.0894 20.8859L21.7935 21.596L21.0894 20.8859ZM15.873 20.7308C15.3207 20.7308 14.873 21.1785 14.873 21.7308C14.873 22.2831 15.3207 22.7308 15.873 22.7308V21.7308V20.7308ZM25.4187 18.7453L24.8673 19.5795L25.4187 18.7453ZM11.53 18.1144L11.9742 19.0104H11.9742L11.53 18.1144ZM16.7501 17.641L17.0111 16.6757H17.0111L16.7501 17.641ZM18.7886 18.1922L18.5276 19.1575H18.5276L18.7886 18.1922ZM19.4345 20.6036L18.7304 19.8934L18.7304 19.8934L19.4345 20.6036ZM17.5935 21.0206C17.2013 21.4095 17.1986 22.0426 17.5874 22.4348C17.9763 22.827 18.6094 22.8298 19.0016 22.4409L18.2976 21.7308L17.5935 21.0206ZM10.0539 25.5769L10.3677 26.5264C10.538 26.4701 10.8603 26.4399 11.3927 26.4775C11.9048 26.5137 12.5004 26.6024 13.1733 26.7072C14.4608 26.9077 16.0552 27.1767 17.4177 27.0536L17.3277 26.0577L17.2378 25.0617C16.1756 25.1577 14.8606 24.9459 13.481 24.731C12.8204 24.6282 12.143 24.5256 11.5338 24.4825C10.9449 24.4409 10.2972 24.4433 9.74016 24.6274L10.0539 25.5769ZM17.3277 26.0577L17.4177 27.0536C19.304 26.8833 20.1992 26.9293 22.1275 25.9963L21.692 25.0962L21.2565 24.196C19.7136 24.9425 19.198 24.8847 17.2378 25.0617L17.3277 26.0577ZM21.692 25.0962L22.1275 25.9963C23.8595 25.1584 25.5906 23.2481 26.6366 21.9677L25.8622 21.3351L25.0877 20.7024C24.032 21.9947 22.5461 23.572 21.2565 24.196L21.692 25.0962ZM23.01 18.9817L22.3059 18.2716L20.3854 20.1757L21.0894 20.8859L21.7935 21.596L23.7141 19.6919L23.01 18.9817ZM19.0321 21.7308V20.7308H15.873V21.7308V22.7308H19.0321V21.7308ZM21.0894 20.8859L20.3854 20.1757C20.0279 20.5301 19.5413 20.7308 19.0321 20.7308V21.7308V22.7308C20.0662 22.7308 21.0597 22.3236 21.7935 21.596L21.0894 20.8859ZM25.4187 18.7453L25.9701 17.911C24.8189 17.1501 23.2865 17.2994 22.3059 18.2716L23.01 18.9817L23.7141 19.6919C24.0204 19.3882 24.5043 19.3396 24.8673 19.5795L25.4187 18.7453ZM25.8622 21.3351L26.6366 21.9677C27.7115 20.6519 27.3067 18.7944 25.9701 17.911L25.4187 18.7453L24.8673 19.5795C25.3 19.8655 25.3511 20.38 25.0877 20.7024L25.8622 21.3351ZM4.71984 16.9231V17.9231H8.59919V16.9231V15.9231H4.71984V16.9231ZM9.56903 17.8846H8.56903V26.5385H9.56903H10.569V17.8846H9.56903ZM8.59919 27.5V26.5H4.71984V27.5V28.5H8.59919V27.5ZM3.75 26.5385H4.75V17.8846H3.75H2.75V26.5385H3.75ZM4.71984 27.5V26.5C4.72093 26.5 4.72467 26.5004 4.72905 26.5022C4.73279 26.5038 4.73574 26.5059 4.73812 26.5082C4.74050 26.5106 4.74349 26.5144 4.74601 26.5203C4.74883 26.5269 4.75 26.5338 4.75 26.5385H3.75H2.75C2.75 27.6299 3.64005 28.5 4.71984 28.5V27.5ZM9.56903 26.5385H8.56903C8.56903 26.5338 8.5702 26.5269 8.57302 26.5203C8.57554 26.5144 8.57852 26.5106 8.58091 26.5082C8.58329 26.5059 8.58624 26.5038 8.58998 26.5022C8.59436 26.5004 8.5981 26.5 8.59919 26.5V27.5V28.5C9.67898 28.5 10.569 27.6299 10.569 26.5385H9.56903ZM8.59919 16.9231V17.9231C8.5981 17.9231 8.59436 17.9227 8.58998 17.9208C8.58623 17.9193 8.58329 17.9172 8.58091 17.9148C8.57852 17.9125 8.57554 17.9087 8.57302 17.9027C8.5702 17.8961 8.56903 17.8893 8.56903 17.8846H9.56903H10.569C10.569 16.7932 9.67898 15.9231 8.59919 15.9231V16.9231ZM4.71984 16.9231V15.9231C3.64005 15.9231 2.75 16.7932 2.75 17.8846H3.75H4.75C4.75 17.8893 4.74883 17.8961 4.74601 17.9027C4.74349 17.9087 4.74051 17.9125 4.73812 17.9148C4.73574 17.9172 4.73279 17.9193 4.72905 17.9208C4.72467 17.9227 4.72093 17.9231 4.71984 17.9231V16.9231ZM10.0539 18.8462L10.4981 19.7421L11.9742 19.0104L11.53 18.1144L11.0859 17.2185L9.6098 17.9502L10.0539 18.8462ZM14.5661 17.4038V18.4038H14.9638V17.4038V16.4038H14.5661V17.4038ZM16.7501 17.641L16.4891 18.6063L18.5276 19.1575L18.7886 18.1922L19.0496 17.2269L17.0111 16.6757L16.7501 17.641ZM19.4345 20.6036L18.7304 19.8934L17.5935 21.0206L18.2976 21.7308L19.0016 22.4409L20.1386 21.3137L19.4345 20.6036ZM18.7886 18.1922L18.5276 19.1575C18.8695 19.25 18.9669 19.659 18.7304 19.8934L19.4345 20.6036L20.1386 21.3137C21.4818 19.982 20.863 17.7172 19.0496 17.2269L18.7886 18.1922ZM14.9638 17.4038V18.4038C15.4791 18.4038 15.9921 18.472 16.4891 18.6063L16.7501 17.641L17.0111 16.6757C16.3438 16.4952 15.6553 16.4038 14.9638 16.4038V17.4038ZM11.53 18.1144L11.9742 19.0104C12.7785 18.6116 13.666 18.4038 14.5661 18.4038V17.4038V16.4038C13.3583 16.4038 12.1668 16.6826 11.0859 17.2185L11.53 18.1144ZM22.1769 10.1923H21.1769C21.1769 11.7561 19.8959 13.0385 18.2976 13.0385V14.0385V15.0385C20.9842 15.0385 23.1769 12.8769 23.1769 10.1923H22.1769ZM18.2976 14.0385V13.0385C16.6992 13.0385 15.4182 11.7561 15.4182 10.1923H14.4182H13.4182C13.4182 12.8769 15.6109 15.0385 18.2976 15.0385V14.0385ZM14.4182 10.1923H15.4182C15.4182 8.62851 16.6992 7.34615 18.2976 7.34615V6.34615V5.34615C15.6109 5.34615 13.4182 7.50777 13.4182 10.1923H14.4182ZM18.2976 6.34615V7.34615C19.8959 7.34615 21.1769 8.62851 21.1769 10.1923H22.1769H23.1769C23.1769 7.50777 20.9842 5.34615 18.2976 5.34615V6.34615ZM14.4182 10.1923V9.19231C12.8199 9.19231 11.5389 7.90996 11.5389 6.34615H10.5389H9.53887C9.53887 9.0307 11.7315 11.1923 14.4182 11.1923V10.1923ZM10.5389 6.34615H11.5389C11.5389 4.78235 12.8199 3.5 14.4182 3.5V2.5V1.5C11.7315 1.5 9.53887 3.66161 9.53887 6.34615H10.5389ZM14.4182 2.5V3.5C16.0166 3.5 17.2976 4.78235 17.2976 6.34615H18.2976H19.2976C19.2976 3.66161 17.1049 1.5 14.4182 1.5V2.5Z" fill="white"/></svg>
                                 </div>
                                 <h4 class="font-bold text-lg mb-2">Commission Unique</h4>
-                                <p class="text-sm text-gray-400">Pourcentage fixe et clair sur chaque vente, sans frais cachés.</p>
+                                <p class="text-sm text-gray-400">Pourcentage fixe et clair sur chaque vente.</p>
                             </div>
                             
                             <div class="bg-white/10 p-6 rounded-xl hover:bg-white/20 transition-colors">
@@ -414,7 +406,7 @@
                                     <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 30 30" fill="none"><path fill-rule="evenodd" clip-rule="evenodd" d="M4.758 7.758C5.88317 6.63317 7.40901 6.00128 9 6.00128C10.591 6.00128 12.1168 6.63317 13.242 7.758L15 9.5145L16.758 7.758C17.3115 7.18494 17.9735 6.72784 18.7056 6.41339C19.4376 6.09894 20.2249 5.93342 21.0216 5.9265C21.8183 5.91957 22.6083 6.07138 23.3457 6.37307C24.0831 6.67475 24.753 7.12027 25.3164 7.68363C25.8797 8.24698 26.3252 8.9169 26.6269 9.65427C26.9286 10.3917 27.0804 11.1817 27.0735 11.9784C27.0666 12.7751 26.9011 13.5624 26.5866 14.2944C26.2721 15.0264 25.8151 15.6885 25.242 16.242L15 26.4855L4.758 16.242C3.63317 15.1168 3.00128 13.591 3.00128 12C3.00128 10.409 3.63317 8.88316 4.758 7.758V7.758Z" stroke="white" stroke-width="2" stroke-linejoin="round"/></svg>
                                 </div>
                                 <h4 class="font-bold text-lg mb-2">Visibilité Maximale</h4>
-                                <p class="text-sm text-gray-400">Nous mettons vos cours en avant auprès de milliers d'étudiants.</p>
+                                <p class="text-sm text-gray-400">Nous mettons vos cours en avant sur la plateforme.</p>
                             </div>
                             
                              <div class="bg-white/10 p-6 rounded-xl hover:bg-white/20 transition-colors">
@@ -422,15 +414,26 @@
                                      <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" viewBox="0 0 26 26" fill="none"><path d="M4 17.5L9.25 22M3.25 17.5L18.0392 2.19428C19.6316 0.601908 22.2133 0.601905 23.8057 2.19428C25.3981 3.78665 25.3981 6.36841 23.8057 7.96078L8.5 22.75L1 25L3.25 17.5Z" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
                                 </div>
                                 <h4 class="font-bold text-lg mb-2">Contrôle Total</h4>
-                                <p class="text-sm text-gray-400">Vous restez maître de votre contenu et de votre tarification.</p>
+                                <p class="text-sm text-gray-400">Contenu, prix. Vous restez maître de votre contenu et de votre tarification.</p>
                             </div>
 
                              <div class="bg-white/10 p-6 rounded-xl hover:bg-white/20 transition-colors">
                                 <div class="mb-4">
-                                     <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" viewBox="0 0 25 25" fill="none"><path fill-rule="evenodd" clip-rule="evenodd" d="M14.3454 2.64534C13.811 0.451554 10.689 0.451554 10.1546 2.64534C10.0748 2.97499 9.91835 3.28115 9.69789 3.5389C9.47743 3.79665 9.19923 3.99871 8.88593 4.12863C8.57262 4.25856 8.23307 4.31267 7.8949 4.28658C7.55673 4.26049 7.2295 4.15493 6.93983 3.97848C5.0104 2.80284 2.80252 5.01069 3.97818 6.94009C4.73758 8.18605 4.06396 9.8117 2.64642 10.1562C0.451194 10.6892 0.451194 13.8125 2.64642 14.3441C2.97616 14.424 3.28238 14.5806 3.54013 14.8013C3.79789 15.0219 3.99989 15.3003 4.12969 15.6137C4.25949 15.9272 4.31343 16.2669 4.2871 16.6051C4.26077 16.9434 4.15492 17.2707 3.97818 17.5603C2.80252 19.4897 5.0104 21.6975 6.93983 20.5219C7.22945 20.3451 7.55671 20.2393 7.89497 20.213C8.23323 20.1866 8.57293 20.2406 8.8864 20.3704C9.19987 20.5002 9.47825 20.7022 9.69888 20.9599C9.91951 21.2177 10.0761 21.5239 10.156 21.8536C10.689 24.0488 13.8124 24.0488 14.344 21.8536C14.4241 21.524 14.5809 21.218 14.8016 20.9605C15.0223 20.7029 15.3006 20.501 15.614 20.3713C15.9274 20.2415 16.2669 20.1875 16.6051 20.2137C16.9433 20.2398 17.2705 20.3454 17.5602 20.5219C19.4896 21.6975 21.6975 19.4897 20.5218 17.5603C20.3454 17.2706 20.2398 16.9434 20.2136 16.6052C20.1875 16.267 20.2414 15.9275 20.3712 15.6141C20.501 15.3007 20.7028 15.0224 20.9604 14.8017C21.218 14.5811 21.524 14.4243 21.8536 14.3441C24.0488 13.8111 24.0488 10.6878 21.8536 10.1562C21.5238 10.0764 21.2176 9.91972 20.9599 9.6991C20.7021 9.47847 20.5001 9.20009 20.3703 8.88663C20.2405 8.57316 20.1866 8.23347 20.2129 7.89521C20.2392 7.55696 20.3451 7.2297 20.5218 6.94009C21.6975 5.01069 19.4896 2.80284 17.5602 3.97848C17.2706 4.15523 16.9433 4.26107 16.605 4.2874C16.2668 4.31373 15.9271 4.2598 15.6136 4.12999C15.3001 4.00019 15.0217 3.7982 14.8011 3.54045C14.5805 3.2827 14.4239 2.97648 14.344 2.64674L14.3454 2.64534Z" stroke="white" stroke-width="2"/><path d="M14.75 12.25C14.75 13.6307 13.6307 14.75 12.25 14.75C10.8693 14.75 9.75 13.6307 9.75 12.25C9.75 10.8693 10.8693 9.75 12.25 9.75C13.6307 9.75 14.75 10.8693 14.75 12.25Z" stroke="white" stroke-width="2"/></svg>
+                                     <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" viewBox="0 0 25 25" fill="none"><path fill-rule="evenodd" clip-rule="evenodd" d="M14.3454 2.64534C13.811 0.451554 10.689 0.451554 10.1546 2.64534C10.0748 2.97499 9.91835 3.28115 9.69789 3.5389C9.47743 3.79665 9.19923 3.99871 8.88593 4.12863C8.57262 4.25856 8.23307 4.31267 7.89490 4.28658C7.55673 4.26049 7.22950 4.15493 6.93983 3.97848C5.01040 2.80284 2.80252 5.01069 3.97818 6.94009C4.73758 8.18605 4.06396 9.81170 2.64642 10.1562C0.451194 10.6892 0.451194 13.8125 2.64642 14.3441C2.97616 14.4240 3.28238 14.5806 3.54013 14.8013C3.79789 15.0219 3.99989 15.3003 4.12969 15.6137C4.25949 15.9272 4.31343 16.2669 4.28710 16.6051C4.26077 16.9434 4.15492 17.2707 3.97818 17.5603C2.80252 19.4897 5.01040 21.6975 6.93983 20.5219C7.22945 20.3451 7.55671 20.2393 7.89497 20.213C8.23323 20.1866 8.57293 20.2406 8.88640 20.3704C9.19987 20.5002 9.47825 20.7022 9.69888 20.9599C9.91951 21.2177 10.0761 21.5239 10.1560 21.8536C10.6890 24.0488 13.8124 24.0488 14.3440 21.8536C14.4241 21.5240 14.5809 21.2180 14.8016 20.9605C15.0223 20.7029 15.3006 20.5010 15.6140 20.3713C15.9274 20.2415 16.2669 20.1875 16.6051 20.2137C16.9433 20.2398 17.2705 20.3454 17.5602 20.5219C19.4896 21.6975 21.6975 19.4897 20.5218 17.5603C20.3454 17.2706 20.2398 16.9434 20.2136 16.6052C20.1875 16.2670 20.2414 15.9275 20.3712 15.6141C20.5010 15.3007 20.7028 15.0224 20.9604 14.8017C21.2180 14.5811 21.5240 14.4243 21.8536 14.3441C24.0488 13.8111 24.0488 10.6878 21.8536 10.1562C21.5238 10.0764 21.2176 9.91972 20.9599 9.69910C20.7021 9.47847 20.5001 9.20009 20.3703 8.88663C20.2405 8.57316 20.1866 8.23347 20.2129 7.89521C20.2392 7.55696 20.3451 7.22970 20.5218 6.94009C21.6975 5.01069 19.4896 2.80284 17.5602 3.97848C17.2706 4.15523 16.9433 4.26107 16.6050 4.28740C16.2668 4.31373 15.9271 4.25980 15.6136 4.12999C15.3001 4.00019 15.0217 3.79820 14.8011 3.54045C14.5805 3.28270 14.4239 2.97648 14.3440 2.64674L14.3454 2.64534Z" stroke="white" stroke-width="2"/><path d="M14.75 12.25C14.75 13.6307 13.6307 14.75 12.25 14.75C10.8693 14.75 9.75 13.6307 9.75 12.25C9.75 10.8693 10.8693 9.75 12.25 9.75C13.6307 9.75 14.75 10.8693 14.75 12.25Z" stroke="white" stroke-width="2"/></svg>
                                 </div>
                                 <h4 class="font-bold text-lg mb-2">Outils Avancés</h4>
-                                <p class="text-sm text-gray-400">Statistiques, codes promos, gestion de la facturation intégrée.</p>
+                                <p class="text-sm text-gray-400"> espace commentaires, possibilité de créer des QCM, exercices, vidéos, téléchargement en PDF, suivi des statistiques des ventes, gestion de codes promos, 
+                                    gestion de la facturation, etc </p>
+                            </div>
+                            
+                            <div class="bg-white/10 p-6 rounded-xl hover:bg-white/20 transition-colors flex flex-col items-center text-center md:col-span-2 mx-auto w-full max-w-md">
+                                <div class="mb-4">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" viewBox="0 0 26 26" fill="none">
+                                        <path d="M3.25 22.7503C3.68045 22.2682 6.57231 19.997 8.00969 18.8774C8.5332 18.4696 9.17534 18.2503 9.83892 18.2503C11.4435 18.2503 14.5355 18.2503 16.1478 18.2503C16.8192 18.2503 17.4677 18.479 18.0082 18.8771C19.8642 20.2444 21.6041 21.2632 23.5 22.7503M5.5 25H20.5C22.9853 25 25 22.9853 25 20.5V5.5C25 3.01472 22.9853 1 20.5 1H5.5C3.01472 1 1 3.01472 1 5.5V20.5C1 22.9853 3.01472 25 5.5 25ZM17.2982 9.59005C17.2982 7.30066 15.3655 5.4301 13 5.4301C10.6345 5.4301 8.70181 7.30066 8.70181 9.59005C8.70181 11.8794 10.6345 13.75 13 13.75C15.3655 13.75 17.2982 11.8794 17.2982 9.59005Z" stroke="white" stroke-width="2"/>
+                                    </svg>                                
+                                </div>
+                                <h4 class="font-bold text-lg mb-2">Les professeurs</h4>
+                                <p class="text-sm text-gray-400">100% propriétaire de sa formation et conserve tous ses droits d’auteur</p>
                             </div>
 
                         </div>
@@ -459,7 +462,9 @@
                 </div>
 
                 <div class="md:w-1/3 flex justify-center">
-                    <img src="assets/logo.png" alt="Logo Klivio" class="w-2/3 opacity-80 grayscale hover:grayscale-0 transition-all duration-500">
+                    <div class="bg-klivio-blue-night p-12 rounded-3xl shadow-2xl transform rotate-10 transition-transform duration-500">
+                        <img src="assets/logo.png" alt="Logo Klivio">
+                    </div>
                 </div>
             </div>
         </section>
@@ -484,16 +489,16 @@
     </main>
     
             
-    <footer class="bg-gray-900 text-gray-300 pt-20 pb-10">
+    <footer class="bg-gray-900 text-gray-300 pt-12 pb-6">
         <div class="container mx-auto px-6">
         
-            <div class="flex flex-col lg:flex-row justify-between gap-12 mb-16">
+            <div class="flex flex-col lg:flex-row justify-between gap-8 mb-10">
                 <div class="lg:w-1/4">
-                    <img src="assets/logo.png" alt="Logo Klivio" class="w-32 brightness-0 invert mb-6">
-                    <p class="text-sm text-gray-500">La plateforme de référence pour apprendre, progresser et enseigner. Rejoignez la communauté Klivio.</p>
+                    <img src="assets/logo.png" alt="Logo Klivio" class="w-28">
+                    <p class="text-sm text-gray-500 mt-5">La plateforme de référence pour apprendre, progresser et enseigner. Rejoignez la communauté Klivio.</p>
                 </div>
 
-                <div class="flex flex-col md:flex-row gap-12 lg:gap-24">
+                <div class="flex flex-col md:flex-row gap-10 lg:gap-20">
                     <div>
                         <h4 class="text-white font-bold text-lg mb-6 border-b-2 border-klivio-green inline-block pb-1">Mentions légales</h4>
                         <ul class="space-y-3">
@@ -506,7 +511,7 @@
 
                     <div>
                         <h4 class="text-white font-bold text-lg mb-6 border-b-2 border-klivio-green inline-block pb-1">Coordonnées</h4>
-                        <ul class="space-y-4">
+                        <ul class="space-y-2 text-sm">
                             <li class="flex items-start gap-3">
                                 <i class="fa-solid fa-location-dot mt-1 text-klivio-green"></i>
                                 <span>1 place république,<br>75003 Paris</span>

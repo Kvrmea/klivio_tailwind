@@ -1,0 +1,48 @@
+@import "tailwindcss";
+
+@theme {
+  --color-klivio-green: #44DD8A;
+  --color-klivio-blue-night: #152237;
+  --color-klivio-burger-white: #FEF7FF;
+  --color-klivio-light-gray: #F7F7F7;
+  --color-klivio-star: #FFC107;
+  
+  /* --- GRADIENTS --- */
+  /* --text-klivio-gradient: linear-gradient(to right, #44DD8A, #15B7E2);
+  --bg-klivio-gradient-hover: linear-gradient(to right, #3BC178, #129BC0); */
+  --background-image-klivio-gradient: linear-gradient(to right, #4b5563, #14b8a6); 
+  --background-image-hero-overlay: linear-gradient(
+      to bottom right, 
+      rgba(21, 34, 55, 0.85), 
+      rgba(21, 34, 55, 0.6)
+    );
+  /* --- BOX SHADOW --- */
+  --shadow-card: 0 10px 30px -5px rgba(0, 0, 0, 0.05);
+
+  /* --- POLICE --- */
+  --font-montserrat: 'Montserrat', sans-serif;
+}
+
+/* Configuration des couches additionnelles (Custom CSS)
+*/
+
+@layer base {
+  body {
+    font-family: var(--font-montserrat);
+  }
+}
+
+@layer utilities {
+    /* Ajout des classes utilitaires personnalisées */
+    
+    .shadow-card {
+        box-shadow: var(--shadow-card);
+    }
+    
+    /* input-field : Décommenter pour l'utiliser */
+    .input-field {
+        @apply w-full px-4 py-3 rounded-lg bg-gray-50 border border-gray-200 
+               focus:border-klivio-green focus:ring-2 focus:ring-klivio-green/20 outline-none 
+               transition-all duration-300;
+    }
+}
